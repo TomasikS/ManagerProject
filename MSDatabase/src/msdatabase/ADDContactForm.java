@@ -10,6 +10,9 @@ import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -19,6 +22,8 @@ import javax.swing.JPanel;
  */
 public class ADDContactForm extends javax.swing.JFrame {
 JFrame j=new JFrame();
+MSDatabase d=new MSDatabase();
+Contact p;
  JPanel panel = new JPanel(); JPanel panel2 = new JPanel();
     /**
      * Creates new form ADDContactForm
@@ -38,7 +43,17 @@ JFrame j=new JFrame();
            panel.setLayout( new GridBagLayout() );
         j.setSize(400, 300);
         panel.add(jButton1, new GridBagConstraints());
-       
+        
+        
+       jButton1.addActionListener(e -> {
+            try {
+                p=new Contact(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField4.getText());
+                
+                d.add(p);
+            } catch (SQLException ex) {
+                Logger.getLogger(ADDContactForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+});
     }
 
     /**

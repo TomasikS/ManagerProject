@@ -110,8 +110,58 @@ public class MSDatabase {
       st.close();
        return ae; 
   }
-
-}
+ 
+ 
+ 
+ 
+  void add(Contact p) throws SQLException {
+         Connection conn = null;
+         try {
+            conn = DriverManager.getConnection(url, user, password);
+            System.out.println("Connected to the PostgreSQL server successfully.");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+          String sql = "insert into Contacts(Firstname, Lastname, Company, City)"
+                        + "values (?, ?, ?, ?)";
+                
+                PreparedStatement preparedStmt = conn.prepareStatement(sql);
+                
+                preparedStmt.setString (1, p.getFirstname());
+                preparedStmt.setString   (2, p.getLastname());
+                preparedStmt.setString (3, p.getCompany());
+                preparedStmt.setString (4, p.getCity());
+                
+              
+                    preparedStmt.execute();
+           
+             
+                
+            }
+void add(Property p) throws SQLException {
+         Connection conn = null;
+         try {
+            conn = DriverManager.getConnection(url, user, password);
+            System.out.println("Connected to the PostgreSQL server successfully.");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+          String sql = "insert into Contacts(Type,Supplier, Country, Procurement, Disposal)"
+                        + "values (?, ?, ?, ?, ?)";
+                
+                PreparedStatement preparedStmt = conn.prepareStatement(sql);
+                
+                preparedStmt.setString (1, p.getType());
+                preparedStmt.setString   (2, p.getSupplier());
+                preparedStmt.setString (3, p.getCountry());
+                preparedStmt.setString (4, p.getProcurement());
+                    preparedStmt.setString (5, p.getDisposal());
+              
+                    preparedStmt.execute();
+           
+             
+                
+}}
 
     
  

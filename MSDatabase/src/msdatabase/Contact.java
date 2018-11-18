@@ -14,6 +14,38 @@ String Firstname ;
  String Lastname ;
   String Company;  
   String  City;  
+    public String getFirstname() {
+        return Firstname;
+    }
+
+    public void setFirstname(String Firstname) {
+        this.Firstname = Firstname;
+    }
+
+    public String getLastname() {
+        return Lastname;
+    }
+
+    public void setLastname(String Lastname) {
+        this.Lastname = Lastname;
+    }
+
+    public String getCompany() {
+        return Company;
+    }
+
+    public void setCompany(String Company) {
+        this.Company = Company;
+    }
+
+    public String getCity() {
+        return City;
+    }
+
+    public void setCity(String City) {
+        this.City = City;
+    }
+
   
   
     public Contact(String Firstname, String Lastname, String Company, String City) {

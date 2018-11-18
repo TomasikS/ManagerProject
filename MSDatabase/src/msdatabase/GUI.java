@@ -7,21 +7,13 @@ package msdatabase;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.KeyStroke;
-
 /**
  *
  * @author Lenovo
@@ -49,7 +41,6 @@ MSDatabase app = new MSDatabase();
 
         menuItem = new JMenuItem("ADD",
                                  KeyEvent.VK_T);
-      //
  
         
         
@@ -89,7 +80,23 @@ MSDatabase app = new MSDatabase();
  
          menuItem.addActionListener(e -> {
            ADDContactForm form= new ADDContactForm();
-});
+           
+          }); 
+         
+         
+         
+            menuItem = new JMenuItem("UPDATE",
+                                 KeyEvent.VK_T);
+         
+          menu.add(menuItem);
+              menuItem = new JMenuItem("DELETE",
+                                 KeyEvent.VK_T);
+         
+          menu.add(menuItem);
+
+         
+         
+         
       menu = new JMenu("Property");
         menu.setMnemonic(KeyEvent.VK_N);
         menuBar.add(menu); 
@@ -97,6 +104,12 @@ MSDatabase app = new MSDatabase();
         menuItem = new JMenuItem("ADD",
                                  KeyEvent.VK_T);
   menu.add(menuItem);
+  
+        menuItem = new JMenuItem("DELETE",
+                                 KeyEvent.VK_T);
+  menu.add(menuItem);
+  
+  
          menuItem.addActionListener(e -> {
         Majetok form= new Majetok();
 });
