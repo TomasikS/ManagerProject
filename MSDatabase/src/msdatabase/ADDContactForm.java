@@ -5,8 +5,13 @@
  */
 package msdatabase;
 
+
+import java.awt.BorderLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -14,19 +19,26 @@ import javax.swing.JFrame;
  */
 public class ADDContactForm extends javax.swing.JFrame {
 JFrame j=new JFrame();
+ JPanel panel = new JPanel(); JPanel panel2 = new JPanel();
     /**
      * Creates new form ADDContactForm
      */
     public ADDContactForm() {
         initComponents();
         j.setVisible(true);
-        j.add(jLabel1);j.add(jTextField1);
-         j.add(jLabel2);j.add(jTextField2);
-          j.add(jLabel3);j.add(jTextField3);
-           j.add(jLabel4);j.add(jTextField4);
-        j.add(jButton1);
+        panel2.add(jLabel1);panel2.add(jTextField1);
+         panel2.add(jLabel2);panel2.add(jTextField2);
+          panel2.add(jLabel3);panel2.add(jTextField3);
+          panel2.add(jLabel4);panel2.add(jTextField4);
+       
+       
+       
+       j.add(panel2, new BorderLayout().NORTH);
+        j.add(panel,  new BorderLayout().SOUTH);  panel2.setLayout(new GridLayout(4,2)  );
+           panel.setLayout( new GridBagLayout() );
         j.setSize(400, 300);
-        GridLayout g=new GridLayout(5,2);j.setLayout(g);
+        panel.add(jButton1, new GridBagConstraints());
+       
     }
 
     /**

@@ -5,15 +5,17 @@
  */
 package msdatabase;
 
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Lenovo
  */
 public class Majetok extends javax.swing.JFrame {
-JFrame f=new JFrame();
+JFrame f=new JFrame(); JPanel panel1=new JPanel();JPanel panel2=new JPanel();
     /**
      * Creates new form Majetok
      */
@@ -21,12 +23,14 @@ JFrame f=new JFrame();
         initComponents();
      
                 
-                f.add(jLabel2);f.add(jComboBox1);
-          f.add(jLabel3);f.add(jTextField2);
-          f.add(jLabel4);f.add(jTextField3);
-          f.add(jLabel5);f.add(jTextField4);
-          f.add(jLabel6);f.add(jTextField5);
-GridLayout g=new GridLayout(7,2);f.setLayout(g);f.setVisible(true);
+                panel1.add(jLabel2);panel1.add(jComboBox1);
+          panel1.add(jLabel3);panel1.add(jTextField2);
+         panel1.add(jLabel4);panel1.add(jTextField3);
+          panel1.add(jLabel5);panel1.add(jTextField4);
+          panel1.add(jLabel6);panel1.add(jTextField5);
+panel1.setLayout(new GridLayout(5,2));
+f.setVisible(true);f.add(panel1, new BorderLayout().NORTH);f.add(panel2);
+panel2.add(jButton1,new BorderLayout().CENTER);
         f.setSize(400, 300);
     }
 

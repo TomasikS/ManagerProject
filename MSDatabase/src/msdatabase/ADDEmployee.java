@@ -6,6 +6,7 @@
 package msdatabase;
 
 
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,6 +14,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -20,6 +22,8 @@ import javax.swing.JFrame;
  */
 public class ADDEmployee extends javax.swing.JPanel {
 private JFrame f = new JFrame("Second");   MSDatabase d= new MSDatabase();
+JPanel panel1=new JPanel(); JPanel panel2=new JPanel();
+
     /**
      * Creates new form ADDEmployee
      */
@@ -28,20 +32,21 @@ private JFrame f = new JFrame("Second");   MSDatabase d= new MSDatabase();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setSize(300,300);
 		f.setVisible(true);
-                GridLayout experimentLayout = new GridLayout(5,2);
-                f.setLayout(experimentLayout);
-                f.add(jLabel1);
-                 f.add(jTextField2);
-                f.add(jLabel2); 
-                                   f.add(jTextField1); 
+                GridLayout experimentLayout = new GridLayout(4,2);
+                panel1.setLayout(experimentLayout);
+                panel1.add(jLabel1);
+                 panel1.add(jTextField2);
+                panel1.add(jLabel2); 
+                                  panel1.add(jTextField1); 
                 
-                f.add(jLabel3);
+                panel1.add(jLabel3);
                 
-                  f.add(jTextField3);   
-                f.add(jLabel4);
-                f.add(jTextField4); 
+                  panel1.add(jTextField3);   
+                panel1.add(jLabel4);
+panel1.add(jTextField4); 
   
-                f.add(jButton1);
+                panel2.add(jButton1, new BorderLayout().CENTER);
+                f.add(panel1,  new BorderLayout().NORTH);f.add(panel2);
     }
 
  
