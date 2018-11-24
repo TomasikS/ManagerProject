@@ -10,11 +10,21 @@ package msdatabase;
  * @author Lenovo
  */
 public class Employee {
+
+    public Employee(int id, String firstname, String lastname, int salary, String adress) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.salary = salary;
+        this.adress = adress;
+    }
  int  id;
  String firstname ;  
   String  lastname  ;
  int salary  ;
  String   adress ; 
+
+   
  
  
     public int getId() {

@@ -66,14 +66,14 @@ public class MSDatabase {
               
                     preparedStmt.execute();
            
-             
+             conn.close();
                 
             }
             
   void delete(int id) throws SQLException{
   
-  
-   Connection con = DriverManager.getConnection(url, user, password);
+    Connection con = null;
+   con = DriverManager.getConnection(url, user, password);
             String sql = "delete from employee where id = ?";
             PreparedStatement preparedStmt = con.prepareStatement(sql);
             preparedStmt.setInt(1, id);
@@ -97,17 +97,17 @@ public class MSDatabase {
 
       while (rs.next())
       {
-        int id = rs.getInt("id");
-        String firstName = rs.getString("firstname");
-        String lastName = rs.getString("lastname");
-        int salary= rs.getInt("salary");
+        int id = rs.getInt("ID");
+        String firstName = rs.getString("Firstname");
+        String lastName = rs.getString("Lastname");
+        int salary= rs.getInt("Salary");
               String adress = rs.getString("Adress");
-      Employee e=new Employee(firstName,lastName, salary, adress);
+      Employee e=new Employee(id,firstName,lastName, salary, adress);
       ae.add(e);
       
       
       }
-      st.close();
+      st.close(); for (int i=0;i<ae.size();i++)System.out.print(ae.get(i).getId());
        return ae; 
   }
  
@@ -122,8 +122,8 @@ public class MSDatabase {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-          String sql = "insert into Contacts(Firstname, Lastname, Company, City)"
-                        + "values (?, ?, ?, ?)";
+          String sql = "insert into Contacts(Firstname, Lastname, Company, City, Email)"
+                        + "values (?, ?, ?, ?, ?)";
                 
                 PreparedStatement preparedStmt = conn.prepareStatement(sql);
                 
@@ -131,7 +131,7 @@ public class MSDatabase {
                 preparedStmt.setString   (2, p.getLastname());
                 preparedStmt.setString (3, p.getCompany());
                 preparedStmt.setString (4, p.getCity());
-                
+                 preparedStmt.setString (5, p.getEmail());
               
                     preparedStmt.execute();
            
@@ -146,22 +146,154 @@ void add(Property p) throws SQLException {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-          String sql = "insert into Contacts(Type,Supplier, Country, Procurement, Disposal)"
+          String sql = "insert into Contacts(Kind, Supplier, Country, Providing, Junking)"
                         + "values (?, ?, ?, ?, ?)";
                 
                 PreparedStatement preparedStmt = conn.prepareStatement(sql);
                 
-                preparedStmt.setString (1, p.getType());
+                preparedStmt.setString (1, p.getKind());
                 preparedStmt.setString   (2, p.getSupplier());
                 preparedStmt.setString (3, p.getCountry());
-                preparedStmt.setString (4, p.getProcurement());
-                    preparedStmt.setString (5, p.getDisposal());
+                preparedStmt.setString (4, p.getProviding());
+                    preparedStmt.setString (5, p.getJunking());
               
                     preparedStmt.execute();
            
              
                 
-}}
+}
+
+    List<Property> readMajetok() throws SQLException {
+      
+        List<Property >am=new ArrayList();
+ Connection con = DriverManager.getConnection(url, user, password);
+  String query = "SELECT * FROM Property";
+
+      Statement st = con.createStatement();
+      
+   
+      ResultSet rs = st.executeQuery(query);
+      
+
+      while (rs.next())
+      {
+       
+        String Kind =rs.getString("Kind");
+        String  Supplier = rs.getString("Supplier");
+        String Country= rs.getString("Country");
+              String Providing = rs.getString("Providing");
+               String Junking = rs.getString("Junking");
+        
+
+      Property e=new Property(Kind, Supplier, Country, Providing, Junking);
+      am.add(e);
+      
+      
+      }
+      st.close();
+       return am; 
+
+
+     }
+
+    void deletemajetok(String kind) {
+     try {
+         Connection con = DriverManager.getConnection(url, user, password);
+         String sql = "delete from Property where Kind = ?";
+         PreparedStatement preparedStmt = con.prepareStatement(sql);
+         preparedStmt.setString(1, kind);
+         preparedStmt.execute();
+         con.close();
+     } catch (SQLException ex) {
+         Logger.getLogger(MSDatabase.class.getName()).log(Level.SEVERE, null, ex);
+     }
+    }
+
+ List<Contact> readContacts() {
+       List<Contact> u=new ArrayList<>();
+     try {
+       
+         Connection con = DriverManager.getConnection(url, user, password);
+ Statement st = con.createStatement();
+        String sql = "select * from contacts";
+   
+      ResultSet rs = st.executeQuery(sql);
+      
+
+      while (rs.next())
+      {
+      
+        String Firstname= rs.getString("Firstname");
+     String Lastname= rs.getString("Lastname");
+       String Company    = rs.getString("Company");   
+          String City   = rs.getString("City");
+              String Email  = rs.getString("Email");    
+      Contact e=new Contact(Firstname, Lastname, Company,City, Email);
+      u.add(e);
+      
+      
+      }
+      st.close();
+         
+     } catch (SQLException ex) {
+         Logger.getLogger(MSDatabase.class.getName()).log(Level.SEVERE, null, ex);
+     }
+      return u;  
+    }
+
+    void updateContact(Contact g) {
+        
+     try {
+         Connection conn = DriverManager.getConnection(url, user, password);
+         
+         String query = "update contacts set email = ? where Firstname = ?";
+         PreparedStatement preparedStmt = conn.prepareStatement(query);
+         preparedStmt.setString   (1, g.getEmail());
+         preparedStmt.setString(2, g.getFirstname());
+         
+         preparedStmt.executeUpdate();
+         
+         conn.close();
+     } catch (SQLException ex) {
+         Logger.getLogger(MSDatabase.class.getName()).log(Level.SEVERE, null, ex);
+     }
+    }
+
+    void updateEmployee(Employee e) {
+    try {
+         Connection conn = DriverManager.getConnection(url, user, password);
+         
+         String query = "update employee set  salary = ? where id = ?";
+         PreparedStatement preparedStmt = conn.prepareStatement(query);
+         preparedStmt.setInt   (1, e.getSalary());
+         preparedStmt.setInt(2, e.getId());
+         
+         preparedStmt.executeUpdate();
+         
+         conn.close();
+     } catch (SQLException ex) {
+         Logger.getLogger(MSDatabase.class.getName()).log(Level.SEVERE, null, ex);
+     }
+
+    
+    }
+    
+      void deleteContact(String s) throws SQLException{
+  
+    Connection con = null;
+   con = DriverManager.getConnection(url, user, password);
+            String sql = "delete from contacts where Lastname = ?";
+            PreparedStatement preparedStmt = con.prepareStatement(sql);
+            preparedStmt.setString(1, s);
+            preparedStmt.execute();
+            con.close();
+  
+  
+  }
+    
+    
+}
+
 
     
  

@@ -78,11 +78,12 @@ MSDatabase app = new MSDatabase();
          
          
  
-         menuItem.addActionListener(e -> {
+
+         
+                    menuItem.addActionListener(e -> {
            ADDContactForm form= new ADDContactForm();
            
           }); 
-         
          
          
             menuItem = new JMenuItem("UPDATE",
@@ -93,9 +94,11 @@ MSDatabase app = new MSDatabase();
                                  KeyEvent.VK_T);
          
           menu.add(menuItem);
+         menuItem.addActionListener(e -> {
+           DeleteContactForm form= new DeleteContactForm();
+           
+          }); 
 
-         
-         
          
       menu = new JMenu("Property");
         menu.setMnemonic(KeyEvent.VK_N);
@@ -105,14 +108,18 @@ MSDatabase app = new MSDatabase();
                                  KeyEvent.VK_T);
   menu.add(menuItem);
   
+           menuItem.addActionListener(e -> {
+        Majetok form= new Majetok();
+});
+  
         menuItem = new JMenuItem("DELETE",
                                  KeyEvent.VK_T);
   menu.add(menuItem);
   
-  
-         menuItem.addActionListener(e -> {
-        Majetok form= new Majetok();
+           menuItem.addActionListener(e -> {
+        MajetokDelete form= new MajetokDelete();
 });
+
         return menuBar;
     }
  
@@ -128,7 +135,7 @@ MSDatabase app = new MSDatabase();
   
     private static void createAndShowGUI() {
   
-        JFrame frame = new JFrame("MenuLookDemo");
+        JFrame frame = new JFrame("APP FOR MANAGER");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
        GUI demo = new   GUI();

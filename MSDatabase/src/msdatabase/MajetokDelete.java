@@ -5,11 +5,10 @@
  */
 package msdatabase;
 
+
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import static java.util.Collections.list;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,36 +19,26 @@ import javax.swing.JPanel;
  *
  * @author Lenovo
  */
-public class DeleteForm extends javax.swing.JFrame {
-private JFrame f = new JFrame("Second");MSDatabase d=new  MSDatabase();
-   JPanel p1=new JPanel();
- JPanel p2=new JPanel();
+public class MajetokDelete extends javax.swing.JFrame {
+JFrame f=new JFrame();MSDatabase d=new MSDatabase();
+JPanel p1=new JPanel();
+JPanel p2=new JPanel();
 
-/**
-     * Creates new form DeleteForm
+    /**
+     * Creates new form MajetokDelete
      */
-    public DeleteForm() {
+    public MajetokDelete() {
     try {
-        initComponents(); f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.setSize(300,300);
-        f.setVisible(true);f.show();
-               p1.add(jTextField1);
-                
-                p2.add(jButton1);
-                
-                p1.add(jComboBox1);//f.add(jTextField1);
+        initComponents();f.setVisible(true);f.setSize(400,300);
+      p1.add(jButton1);p2.add(jLabel1);p2.add(jComboBox1);
+        f.add(p1, new BorderLayout().SOUTH);
+         f.add(p2, new BorderLayout().NORTH);
         
-        f.add(p1, new BorderLayout().NORTH);
-            f.add(p2, new BorderLayout().SOUTH);
-        
-        
-        
-        List<Employee> item= d.read();
-        for (int i=0;i<item.size();i++)    jComboBox1.addItem(String.valueOf(item.get(i).getId()));
-        GridLayout g=new GridLayout(1,1);f.setLayout(g);
-
+        List<Property> item= d.readMajetok();
+        for (int i=0;i<item.size();i++)    jComboBox1.addItem(item.get(i).getKind());
+        //  f.add(jButton1,new BorderLayout().SOUTH);f.add(jComboBox1, new BorderLayout().NORTH);
     } catch (SQLException ex) {
-        Logger.getLogger(DeleteForm.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(MajetokDelete.class.getName()).log(Level.SEVERE, null, ex);
     }
     }
 
@@ -64,7 +53,7 @@ private JFrame f = new JFrame("Second");MSDatabase d=new  MSDatabase();
 
         jButton1 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,64 +64,50 @@ private JFrame f = new JFrame("Second");MSDatabase d=new  MSDatabase();
             }
         });
 
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-
-        jTextField1.setText("ID");
+        jLabel1.setText("Kind");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(128, 128, 128)
+                .addGap(151, 151, 151)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))
-                .addContainerGap(167, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(180, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(84, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73)
+                .addContainerGap(101, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82)
                 .addComponent(jButton1)
-                .addGap(52, 52, 52))
+                .addGap(42, 42, 42))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    try {
         // TODO add your handling code here:
-        int pr= Integer.parseInt(jComboBox1.getSelectedItem().toString());
-        System.out.println(pr);
-        d.delete(pr);
-    } catch (SQLException ex) {
-        Logger.getLogger(DeleteForm.class.getName()).log(Level.SEVERE, null, ex);
-    }
+        
+        String j=  jComboBox1.getSelectedItem().toString();
+        d.deletemajetok(j);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
- 
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

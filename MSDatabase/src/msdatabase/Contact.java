@@ -14,6 +14,16 @@ String Firstname ;
  String Lastname ;
   String Company;  
   String  City;  
+  String Email;
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String Email) {
+        this.Email = Email;
+    }
+          
     public String getFirstname() {
         return Firstname;
     }
@@ -48,11 +58,11 @@ String Firstname ;
 
   
   
-    public Contact(String Firstname, String Lastname, String Company, String City) {
+    public Contact(String Firstname, String Lastname, String Company, String City, String e) {
         this.Firstname = Firstname;
         this.Lastname = Lastname;
         this.Company = Company;
-        this.City = City;
+        this.City = City;this.Email=e;
     }
  
  

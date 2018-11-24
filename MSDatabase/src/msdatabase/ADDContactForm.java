@@ -35,11 +35,11 @@ Contact p;
          panel2.add(jLabel2);panel2.add(jTextField2);
           panel2.add(jLabel3);panel2.add(jTextField3);
           panel2.add(jLabel4);panel2.add(jTextField4);
-       
+         panel2.add(jLabel5);panel2.add(jTextField5);
        
        
        j.add(panel2, new BorderLayout().NORTH);
-        j.add(panel,  new BorderLayout().SOUTH);  panel2.setLayout(new GridLayout(4,2)  );
+        j.add(panel,  new BorderLayout().SOUTH);  panel2.setLayout(new GridLayout(5,2)  );
            panel.setLayout( new GridBagLayout() );
         j.setSize(400, 300);
         panel.add(jButton1, new GridBagConstraints());
@@ -47,7 +47,7 @@ Contact p;
         
        jButton1.addActionListener(e -> {
             try {
-                p=new Contact(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField4.getText());
+                p=new Contact(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField4.getText(), jTextField5.getText());
                 
                 d.add(p);
             } catch (SQLException ex) {
@@ -74,6 +74,8 @@ Contact p;
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,6 +90,8 @@ Contact p;
 
         jLabel4.setText("City");
 
+        jLabel5.setText("Email");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -99,16 +103,19 @@ Contact p;
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
+                            .addComponent(jLabel4)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(80, 80, 80)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField5)
                             .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
                             .addComponent(jTextField1)
                             .addComponent(jTextField3)
                             .addComponent(jTextField4)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
+                        .addGap(177, 177, 177)
                         .addComponent(jButton1)))
                 .addContainerGap(140, Short.MAX_VALUE))
         );
@@ -131,9 +138,13 @@ Contact p;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addGap(47, 47, 47))
+                .addGap(38, 38, 38))
         );
 
         pack();
@@ -147,9 +158,11 @@ Contact p;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }

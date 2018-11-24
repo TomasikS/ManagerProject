@@ -7,6 +7,12 @@ package msdatabase;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -16,31 +22,41 @@ import javax.swing.JPanel;
  */
 public class UpdateForm extends javax.swing.JFrame {
 private JFrame f = new JFrame("Second");
+MSDatabase m=new MSDatabase();List<Employee> contacts=new ArrayList();
     /**
      * Creates new form UpdateForm
      */
     public UpdateForm() {
+    try {
         initComponents();
         
-          initComponents();
-
+         
+        
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.setSize(400,350);
-		f.setVisible(true);
-                    GridLayout g=new GridLayout(2,2);
-                JPanel j1=new JPanel();
-                   JPanel j2=new JPanel();  
-               j1.add(jLabel1);
-                 j1.add(jComboBox1);
-                 
-                j1.add(jLabel2);
-                j1.add(jTextField1);
-                     j1.setLayout(g);
-                     j2.add(jButton1, BorderLayout.PAGE_START);
-                     
-                f.add(j1, BorderLayout.NORTH); f.add(j2, BorderLayout.SOUTH);
-
-  
+        f.setSize(400,350);
+        f.setVisible(true);
+        GridLayout g=new GridLayout(2,2);
+        JPanel j1=new JPanel();
+        JPanel j2=new JPanel();
+        j1.add(jLabel1);
+        j1.add(jComboBox1);
+        j1.add(jLabel3);
+        j1.add(jLabel2);
+        j1.add(jTextField1);
+        j1.setLayout(g);
+        j2.add(jButton1, BorderLayout.PAGE_START);
+        
+        f.add(j1, BorderLayout.NORTH); f.add(j2, BorderLayout.SOUTH);
+        
+        
+        contacts=m.read(); 
+        for (int i=0;i<contacts.size();i++) 
+        jComboBox1.addItem(String.valueOf(contacts.get(i).getFirstname()));
+        
+        
+    } catch (SQLException ex) {
+        Logger.getLogger(UpdateForm.class.getName()).log(Level.SEVERE, null, ex);
+    }
     
     }
 
@@ -55,16 +71,20 @@ private JFrame f = new JFrame("Second");
 
         jProgressBar1 = new javax.swing.JProgressBar();
         jButton1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Update");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("ID");
 
@@ -76,37 +96,46 @@ private JFrame f = new JFrame("Second");
             }
         });
 
+        jLabel3.setBackground(new java.awt.Color(0, 255, 0));
+        jLabel3.setText("UPDATE SALARY ");
+        jLabel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(180, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addContainerGap(125, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButton1))
                 .addGap(153, 153, 153))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(42, 42, 42)
+                .addGap(45, 45, 45)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(40, 40, 40)
+                .addGap(55, 55, 55)
                 .addComponent(jButton1)
                 .addContainerGap(88, Short.MAX_VALUE))
         );
@@ -118,6 +147,34 @@ private JFrame f = new JFrame("Second");
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    
+    try {
+        // TODO add your handling code here:
+       int pom = 0; 
+        String j=jComboBox1.getSelectedItem().toString();
+        
+  System.out.println(j);
+        contacts=m.read(); System.out.println(contacts);
+  List<String> pl=new ArrayList();
+        for(int i=0 ; i<contacts.size();i++)
+        
+        pl.add(contacts.get(i).firstname);
+        
+        pom=pl.indexOf(j);
+        
+        
+        
+        System.out.println(pom);
+        Employee con= contacts.get(pom); 
+        con.setSalary(Integer.parseInt(jTextField1.getText()));
+        m.updateEmployee(con);
+    } catch (SQLException ex) {
+        Logger.getLogger(UpdateForm.class.getName()).log(Level.SEVERE, null, ex);
+    }
+      
+    }//GEN-LAST:event_jButton1ActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -125,6 +182,7 @@ private JFrame f = new JFrame("Second");
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables

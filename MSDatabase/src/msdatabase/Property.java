@@ -10,57 +10,57 @@ package msdatabase;
  * @author Lenovo
  */
 public class Property {
- String type;
- String supplier;
- String country;
- String procurement;
- String disposal;
 
-    public String getType() {
-        return type;
+    public String getKind() {
+        return Kind;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setKind(String Kind) {
+        this.Kind = Kind;
     }
 
     public String getSupplier() {
-        return supplier;
+        return Supplier;
     }
 
-    public void setSupplier(String supplier) {
-        this.supplier = supplier;
+    public void setSupplier(String Supplier) {
+        this.Supplier = Supplier;
     }
 
     public String getCountry() {
-        return country;
+        return Country;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setCountry(String Country) {
+        this.Country = Country;
     }
 
-    public String getProcurement() {
-        return procurement;
+    public String getProviding() {
+        return Providing;
     }
 
-    public void setProcurement(String procurement) {
-        this.procurement = procurement;
+    public void setProviding(String Providing) {
+        this.Providing = Providing;
     }
 
-    public String getDisposal() {
-        return disposal;
+    public String getJunking() {
+        return Junking;
     }
 
-    public void setDisposal(String disposal) {
-        this.disposal = disposal;
+    public void setJunking(String Junking) {
+        this.Junking = Junking;
     }
 
-    public Property(String type, String supplier, String country, String procurement, String disposal) {
-        this.type = type;
-        this.supplier = supplier;
-        this.country = country;
-        this.procurement = procurement;
-        this.disposal = disposal;
+    public Property(String Kind, String Supplier, String Country, String Providing, String Junking) {
+        this.Kind = Kind;
+        this.Supplier = Supplier;
+        this.Country = Country;
+        this.Providing = Providing;
+        this.Junking = Junking;
     }
+String  Kind;
+String Supplier; 
+String Country; 
+String Providing; 
+String Junking;
 }
