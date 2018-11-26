@@ -6,6 +6,7 @@
 package msdatabase;
 
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -40,12 +41,13 @@ JFrame f=new JFrame();
         
         
    jl=new JList(pomm.toArray());
+   jl.setSize(60, 200);
  p1.add(jLabel1);
   p1.add(jl);
- p2.add(jButton1);
+ p2.add(jButton1);p1.setLayout(new GridLayout (2,1));
  f.add(p1, new BorderLayout().NORTH);
   f.add(p2, new BorderLayout().SOUTH);
- f.setVisible(true);f.setSize(400, 300);
+ f.setVisible(true);f.setSize(300, 300);
     }
 
     /**

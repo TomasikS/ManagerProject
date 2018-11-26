@@ -10,6 +10,11 @@ package msdatabase;
  * @author Lenovo
  */
 public class Contact {
+
+    public Contact(String Lastname, String Email) {
+        this.Lastname = Lastname;
+        this.Email = Email;
+    }
 String Firstname ;
  String Lastname ;
   String Company;  

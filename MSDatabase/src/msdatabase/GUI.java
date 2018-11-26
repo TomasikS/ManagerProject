@@ -7,6 +7,7 @@ package msdatabase;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Font;
 import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -21,7 +22,7 @@ import javax.swing.JScrollPane;
 public class GUI {
 MSDatabase app = new MSDatabase();
     JScrollPane scrollPane;
-    private Employee Employee;
+
  
     public JMenuBar createMenuBar() {
         JMenuBar menuBar;
@@ -34,6 +35,7 @@ MSDatabase app = new MSDatabase();
  
 
         menu = new JMenu("Employees");
+         menu.setFont( new Font("Sansserif", Font.BOLD,30));
         menu.setMnemonic(KeyEvent.VK_A);
      
         menuBar.add(menu);
@@ -68,6 +70,8 @@ MSDatabase app = new MSDatabase();
 });
         
         menu = new JMenu("Contacts");
+              
+                 menu.setFont( new Font("Sansserif", Font.BOLD,30));
         menu.setMnemonic(KeyEvent.VK_N);
         menuBar.add(menu);
         
@@ -90,6 +94,13 @@ MSDatabase app = new MSDatabase();
                                  KeyEvent.VK_T);
          
           menu.add(menuItem);
+          
+          menuItem.addActionListener(e -> {
+          UpdateContact form= new UpdateContact();
+           
+          }); 
+          
+          
               menuItem = new JMenuItem("DELETE",
                                  KeyEvent.VK_T);
          
@@ -100,7 +111,8 @@ MSDatabase app = new MSDatabase();
           }); 
 
          
-      menu = new JMenu("Property");
+      menu = new JMenu("Property");  
+      menu.setFont( new Font("Sansserif", Font.BOLD,30));
         menu.setMnemonic(KeyEvent.VK_N);
         menuBar.add(menu); 
         
@@ -128,34 +140,34 @@ MSDatabase app = new MSDatabase();
         contentPane.setOpaque(true);
         scrollPane = new JScrollPane();
         contentPane.add(scrollPane, BorderLayout.CENTER);
- 
+
         return contentPane;
     }
  
   
-    private static void createAndShowGUI() {
+    public static void createAndShowGUI() {
   
         JFrame frame = new JFrame("APP FOR MANAGER");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
- 
+
        GUI demo = new   GUI();
         frame.setJMenuBar(demo.createMenuBar());
         frame.setContentPane(demo.createContentPane());
  
-        frame.setSize(450, 260);
+        frame.setSize(500, 360);
         frame.setVisible(true);
     }
  
-    public static void main(String[] args) {
+    ///public static void main(String[] args) {
       
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+     /*   javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowGUI();
                 
                
-            }
-        });
-    }   
+            
+        });}*/
+   ///}   
 }
 
 

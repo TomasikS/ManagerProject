@@ -246,7 +246,7 @@ void add(Property p) throws SQLException {
      try {
          Connection conn = DriverManager.getConnection(url, user, password);
          
-         String query = "update contacts set email = ? where Firstname = ?";
+         String query = "update contacts set email = ? where Lastname = ?";
          PreparedStatement preparedStmt = conn.prepareStatement(query);
          preparedStmt.setString   (1, g.getEmail());
          preparedStmt.setString(2, g.getFirstname());
