@@ -6,6 +6,7 @@
 package msdatabase;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ JPanel p2= new JPanel();
          
          p1.add(jLabel2);
          
-         p1.add(jTextField2);
+         p1.add(jPasswordField1);
          
         p1.setLayout(new GridLayout(2,2));
          p2.add(jButton1);
@@ -42,7 +43,10 @@ JPanel p2= new JPanel();
         fr.add(p1, new BorderLayout().NORTH);
          fr.add(p2, new BorderLayout().SOUTH);
          fr.setVisible(true);
-        
+      
+        p1.setBackground(Color.BLUE);
+        p2.setBackground(Color.BLUE);
+        fr.getContentPane().setBackground(Color.BLUE);
     }
 
     /**
@@ -58,11 +62,12 @@ JPanel p2= new JPanel();
 
         jButton1 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(51, 255, 255));
 
         jButton1.setText("LOGIN");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -81,6 +86,8 @@ JPanel p2= new JPanel();
 
         jLabel2.setText("PASSWORD");
 
+        jPasswordField1.setText("jPasswordField1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,12 +101,12 @@ JPanel p2= new JPanel();
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                            .addComponent(jPasswordField1)
                             .addComponent(jTextField1)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(164, 164, 164)
                         .addComponent(jButton1)))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,8 +117,8 @@ JPanel p2= new JPanel();
                     .addComponent(jLabel1))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54)
                 .addComponent(jButton1)
                 .addGap(53, 53, 53))
@@ -126,7 +133,7 @@ JPanel p2= new JPanel();
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        
+         
         List<User> u=new ArrayList();
         DatabaseLogin l=new DatabaseLogin();
     try {
@@ -139,7 +146,7 @@ JPanel p2= new JPanel();
          System.out.println(jTextField1.getText().length());
          System.out.println(jTextField2.getText().length());*/
        
-        if((u.get(0).login.substring(0, 7).equals(jTextField1.getText())) &&(u.get(0).heslo.substring(0, 10).equals(jTextField2.getText().toString())))
+        if((u.get(0).login.substring(0, 7).equals(jTextField1.getText())) &&(u.get(0).heslo.substring(0, 10).equals(jPasswordField1.getText().toString())))
         { 
         
   
@@ -197,7 +204,7 @@ JPanel p2= new JPanel();
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
