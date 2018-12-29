@@ -21,7 +21,8 @@ import javax.swing.JPanel;
  * @author Lenovo
  */
 public class DeleteForm extends javax.swing.JFrame {
-private JFrame f = new JFrame("Second");MSDatabase d=new  MSDatabase();
+private JFrame f = new JFrame("Second");
+MSDatabase d=new  MSDatabase();
    JPanel p1=new JPanel();
  JPanel p2=new JPanel();
 
@@ -45,7 +46,7 @@ private JFrame f = new JFrame("Second");MSDatabase d=new  MSDatabase();
         
         
         List<Employee> item= d.read();
-        for (int i=0;i<item.size();i++)    jComboBox1.addItem(String.valueOf(item.get(i).getId()));
+        for (int i=0;i<item.size();i++)    jComboBox1.addItem(String.valueOf(item.get(i).getFirstname()));
         GridLayout g=new GridLayout(1,1);f.setLayout(g);
 
     } catch (SQLException ex) {
@@ -82,7 +83,12 @@ private JFrame f = new JFrame("Second");MSDatabase d=new  MSDatabase();
             }
         });
 
-        jTextField1.setText("ID");
+        jTextField1.setText("Name");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("BACK");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -129,7 +135,7 @@ private JFrame f = new JFrame("Second");MSDatabase d=new  MSDatabase();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     try {
         // TODO add your handling code here:
-        int pr= Integer.parseInt(jComboBox1.getSelectedItem().toString());
+        String  pr= jComboBox1.getSelectedItem().toString();
         System.out.println(pr);
         d.delete(pr);
     } catch (SQLException ex) {
@@ -147,6 +153,10 @@ private JFrame f = new JFrame("Second");MSDatabase d=new  MSDatabase();
          GUI m= new GUI();
         m.createAndShowGUI();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments

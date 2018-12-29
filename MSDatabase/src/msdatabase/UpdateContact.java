@@ -136,6 +136,9 @@ JPanel p2=new JPanel();
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
+           GUI m= new GUI();
+        m.createAndShowGUI();
     }//GEN-LAST:event_jButton2ActionPerformed
 
    

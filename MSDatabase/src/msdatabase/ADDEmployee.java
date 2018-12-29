@@ -30,7 +30,7 @@ JPanel panel1=new JPanel(); JPanel panel2=new JPanel();
     public ADDEmployee() {
         initComponents();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.setSize(300,300);
+		f.setSize(400,300);
 		f.setVisible(true);
                 GridLayout experimentLayout = new GridLayout(4,2);
                 panel1.setLayout(experimentLayout);
@@ -48,7 +48,7 @@ panel1.add(jTextField4);
                 panel2.add(jButton1);
                 panel2.add(jButton2);
                 panel2.setLayout(new GridLayout(1,2));
-                f.add(panel1,  new BorderLayout().NORTH);f.add(panel2);
+                f.add(panel1,  new BorderLayout().NORTH);f.add(panel2,  new BorderLayout().SOUTH);
     }
 
  

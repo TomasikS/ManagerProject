@@ -70,13 +70,13 @@ public class MSDatabase {
                 
             }
             
-  void delete(int id) throws SQLException{
+  void delete(String id) throws SQLException{
   
     Connection con = null;
    con = DriverManager.getConnection(url, user, password);
-            String sql = "delete from employee where id = ?";
+            String sql = "delete from employee where Firstname = ?";
             PreparedStatement preparedStmt = con.prepareStatement(sql);
-            preparedStmt.setInt(1, id);
+            preparedStmt.setString(1, id);
             preparedStmt.execute();
             con.close();
   
