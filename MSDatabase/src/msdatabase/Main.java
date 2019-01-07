@@ -44,9 +44,9 @@ JPanel p2= new JPanel();
          fr.add(p2, new BorderLayout().SOUTH);
          fr.setVisible(true);
       
-        p1.setBackground(Color.BLUE);
-        p2.setBackground(Color.BLUE);
-        fr.getContentPane().setBackground(Color.BLUE);
+        p1.setBackground(Color.ORANGE);
+        p2.setBackground(Color.ORANGE);
+        fr.getContentPane().setBackground(Color.ORANGE);
     }
 
     /**
