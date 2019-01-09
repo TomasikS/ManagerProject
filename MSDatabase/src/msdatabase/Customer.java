@@ -10,10 +10,16 @@ package msdatabase;
  * @author Lenovo
  */
 public class Customer {
+
+    public Customer(String Firstname, String Lastname) {
+       // this.CustomerID = CustomerID;
+        this.Firstname = Firstname;
+        this.Lastname = Lastname;
+    }
  int    CustomerID;    
  String Firstname;   
   String Lastname   ;
-   String City  ;
+ 
 
     public int getCustomerID() {
         return CustomerID;
@@ -39,14 +45,7 @@ public class Customer {
         this.Lastname = Lastname;
     }
 
-    public String getCity() {
-        return City;
-    }
-
-    public void setCity(String City) {
-        this.City = City;
-    }
-
+ 
 
 
 }

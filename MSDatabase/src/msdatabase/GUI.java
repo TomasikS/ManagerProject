@@ -36,13 +36,13 @@ MSDatabase app = new MSDatabase();
 
         menu = new JMenu("Employees");
          menu.setFont( new Font("Sansserif", Font.BOLD,30));
-        menu.setMnemonic(KeyEvent.VK_A);
+       /// menu.setMnemonic(KeyEvent.VK_A);
      
         menuBar.add(menu);
  
 
-        menuItem = new JMenuItem("ADD",
-                                 KeyEvent.VK_T);
+        menuItem = new JMenuItem("ADD"
+                                );
  
         
         
@@ -54,7 +54,7 @@ MSDatabase app = new MSDatabase();
         
         menu.add(menuItem);
         menuItem = new JMenuItem("UPDATE Salary");
-        menuItem.setMnemonic(KeyEvent.VK_B);
+       // menuItem.setMnemonic(KeyEvent.VK_B);
         menu.add(menuItem);
  
         menuItem.addActionListener(e -> {
@@ -63,7 +63,7 @@ MSDatabase app = new MSDatabase();
 
         
         menuItem = new JMenuItem("DELETE");
-        menuItem.setMnemonic(KeyEvent.VK_D);
+       // menuItem.setMnemonic(KeyEvent.VK_D);
         menu.add(menuItem);
            menuItem.addActionListener(e -> {
             DeleteForm delEmployee = new DeleteForm();
@@ -72,7 +72,7 @@ MSDatabase app = new MSDatabase();
         menu = new JMenu("Contacts");
               
                  menu.setFont( new Font("Sansserif", Font.BOLD,30));
-        menu.setMnemonic(KeyEvent.VK_N);
+        ///menu.setMnemonic(KeyEvent.VK_N);
         menuBar.add(menu);
         
          menuItem = new JMenuItem("ADD",
@@ -101,8 +101,7 @@ MSDatabase app = new MSDatabase();
           }); 
           
           
-              menuItem = new JMenuItem("DELETE",
-                                 KeyEvent.VK_T);
+              menuItem = new JMenuItem("DELETE");
          
           menu.add(menuItem);
          menuItem.addActionListener(e -> {
@@ -113,25 +112,36 @@ MSDatabase app = new MSDatabase();
          
       menu = new JMenu("Property");  
       menu.setFont( new Font("Sansserif", Font.BOLD,30));
-        menu.setMnemonic(KeyEvent.VK_N);
+     // menu.setMnemonic(KeyEvent.VK_N);
         menuBar.add(menu); 
         
-        menuItem = new JMenuItem("ADD",
-                                 KeyEvent.VK_T);
+        menuItem = new JMenuItem("ADD"
+                                );
   menu.add(menuItem);
   
            menuItem.addActionListener(e -> {
         Majetok form= new Majetok();
 });
   
-        menuItem = new JMenuItem("DELETE",
-                                 KeyEvent.VK_T);
+        menuItem = new JMenuItem("DELETE");
   menu.add(menuItem);
   
            menuItem.addActionListener(e -> {
-        MajetokDelete form= new MajetokDelete();
+        MajetokDelete form= new MajetokDelete();      
 });
-
+           
+            menu = new JMenu("Hires");
+ menu.setFont( new Font("Sansserif", Font.BOLD,30));
+     // menu.setMnemonic(KeyEvent.VK_N);
+        menuBar.add(menu); 
+        
+        menuItem = new JMenuItem("VIEW"
+                                );
+  menu.add(menuItem);
+  
+           menuItem.addActionListener(e -> {
+        HireForm form= new HireForm();
+});
         return menuBar;
     }
  
@@ -154,7 +164,7 @@ MSDatabase app = new MSDatabase();
         frame.setJMenuBar(demo.createMenuBar());
         frame.setContentPane(demo.createContentPane());
  
-        frame.setSize(500, 360);
+        frame.setSize(600, 360);
         frame.setVisible(true);
     }
  
