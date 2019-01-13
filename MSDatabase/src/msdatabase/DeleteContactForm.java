@@ -120,7 +120,7 @@ JFrame f=new JFrame();
         // TODO add your handling code here:
         String s=jl.getSelectedValue().toString();
         
-        d.deleteContact(s);
+        d.deleteContact(s);f.repaint();
     } catch (SQLException ex) {
         Logger.getLogger(DeleteContactForm.class.getName()).log(Level.SEVERE, null, ex);
     }

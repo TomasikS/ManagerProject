@@ -141,6 +141,7 @@ MSDatabase app = new MSDatabase();
   
            menuItem.addActionListener(e -> {
         HireForm form= new HireForm();
+        form.setVisible(true);
 });
         return menuBar;
     }

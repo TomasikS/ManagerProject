@@ -12,22 +12,19 @@ import java.util.Date;
  * @author Lenovo
  */
 public class Order {
-   int OrderID ;
-Date OrderDate ;
-Date RemoteDate;
-String name   ;
-String address  ;
-String country  ;
-String CustomerID;
-
-    public int getOrderID() {
-        return OrderID;
-    }
-
-    public void setOrderID(int OrderID) {
-        this.OrderID = OrderID;
-    }
-
+Date OrderDate;
+        
+        Date   RemoteDate;
+        
+        
+      String  name;
+        
+        
+      int  price; 
+        
+        
+        
+      int CustomerID ;
     public Date getOrderDate() {
         return OrderDate;
     }
@@ -52,28 +49,36 @@ String CustomerID;
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public int getPrice() {
+        return price;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getCustomerID() {
+    public int getCustomerID() {
         return CustomerID;
     }
 
-    public void setCustomerID(String CustomerID) {
+    public void setCustomerID(int CustomerID) {
         this.CustomerID = CustomerID;
     }
+
+      
+      
+      
+    public Order(Date OrderDate, Date RemoteDate, String name, int price, int CustomerID) {
+        this.OrderDate = OrderDate;
+        this.RemoteDate = RemoteDate;
+        this.name = name;
+        this.price = price;
+        this.CustomerID = CustomerID;
+    }
+    
+    
+
+
+    
 
 }
