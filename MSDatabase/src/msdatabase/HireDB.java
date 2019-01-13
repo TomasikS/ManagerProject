@@ -69,7 +69,34 @@ public class HireDB {
     
     
     
-    
+     List readCustomer () throws SQLException{
+     List<Customer> ae=new ArrayList();
+     Connection con = DriverManager.getConnection(url, user, password);
+  String query = "SELECT * FROM Customers";
+
+      Statement st = con.createStatement();
+      
+   
+      ResultSet rs = st.executeQuery(query);
+      
+
+      while (rs.next())
+      {
+//        int id = rs.getInt("ID");
+     
+         
+              String  Firstname= rs.getString("Firstname");
+         String Lastname = rs.getString("Lastname");
+             // String  City  = rs.getString("name");
+              
+     Customer e=new Customer( Firstname, Lastname );
+      ae.add(e);
+      
+      
+      }
+      st.close(); //for (int i=0;i<ae.size();i++)System.out.print(ae.get(i).getId());
+       return ae; 
+  }
     
     
     

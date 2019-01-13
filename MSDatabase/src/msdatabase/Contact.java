@@ -15,11 +15,19 @@ public class Contact {
         this.Lastname = Lastname;
         this.Email = Email;
     }
+
+    public Contact(String Firstname, String Lastname, String Company, String Email) {
+        this.Firstname = Firstname;
+        this.Lastname = Lastname;
+        this.Company = Company;
+        this.Email = Email;
+    }
 String Firstname ;
  String Lastname ;
   String Company;  
-  String  City;  
+  
   String Email;
+ 
 
     public String getEmail() {
         return Email;
@@ -53,22 +61,11 @@ String Firstname ;
         this.Company = Company;
     }
 
-    public String getCity() {
-        return City;
-    }
-
-    public void setCity(String City) {
-        this.City = City;
-    }
+  
 
   
   
-    public Contact(String Firstname, String Lastname, String Company, String City, String e) {
-        this.Firstname = Firstname;
-        this.Lastname = Lastname;
-        this.Company = Company;
-        this.City = City;this.Email=e;
-    }
+ 
  
  
 }

@@ -122,16 +122,16 @@ public class MSDatabase {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-          String sql = "insert into Contacts(Firstname, Lastname, Company, City, Email)"
-                        + "values (?, ?, ?, ?, ?)";
+          String sql = "insert into Contacts(Firstname, Lastname, Company, Email)"
+                        + "values (?, ?, ?, ?)";
                 
                 PreparedStatement preparedStmt = conn.prepareStatement(sql);
                 
                 preparedStmt.setString (1, p.getFirstname());
                 preparedStmt.setString   (2, p.getLastname());
                 preparedStmt.setString (3, p.getCompany());
-                preparedStmt.setString (4, p.getCity());
-                 preparedStmt.setString (5, p.getEmail());
+               // preparedStmt.setString (4, p.getCity());
+                 preparedStmt.setString (4, p.getEmail());
               
                     preparedStmt.execute();
            
@@ -226,9 +226,9 @@ void add(Property p) throws SQLException {
         String Firstname= rs.getString("Firstname");
      String Lastname= rs.getString("Lastname");
        String Company    = rs.getString("Company");   
-          String City   = rs.getString("City");
+          //String City   = rs.getString("City");
               String Email  = rs.getString("Email");    
-      Contact e=new Contact(Firstname, Lastname, Company,City, Email);
+      Contact e=new Contact(Firstname, Lastname, Company, Email);
       u.add(e);
       
       
@@ -242,14 +242,15 @@ void add(Property p) throws SQLException {
     }
 
     void updateContact(Contact g) {
-        
+       System.out.println(g.Lastname);
      try {
          Connection conn = DriverManager.getConnection(url, user, password);
          
-         String query = "update contacts set email = ? where Lastname = ?";
+         String query = "update contacts set email ='" + g.Email+ "'"+  "where Lastname ='" + g.Lastname + "'"  ;
          PreparedStatement preparedStmt = conn.prepareStatement(query);
-         preparedStmt.setString   (1, g.getEmail());
-         preparedStmt.setString(2, g.getFirstname());
+        // preparedStmt.setString(2, g.getFirstname());
+        // preparedStmt.setString   (1, g.getEmail());
+         
          
          preparedStmt.executeUpdate();
          
