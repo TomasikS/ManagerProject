@@ -12,7 +12,9 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
+import javax.swing.JList;
 import javax.swing.JPanel;
 
 /**
@@ -24,22 +26,31 @@ JFrame f=new JFrame();MSDatabase d=new MSDatabase();
 JPanel p1=new JPanel();
 JPanel p2=new JPanel();
 
+ DefaultListModel demoList = new DefaultListModel();
+ JList JList1= new JList(demoList);
     /**
      * Creates new form MajetokDelete
      */
     public MajetokDelete() {
     try {
         initComponents();f.setVisible(true);f.setSize(400,300);
+        
+  
+
+ 
       p1.add(jButton1);
         p1.add(jButton2);
               
-              p2.add(jLabel1);p2.add(jComboBox1);
+              p2.add(jLabel1);
         f.add(p1, new BorderLayout().SOUTH);
         f.add(jTextField1, new BorderLayout().NORTH);
          f.add(p2, new BorderLayout().CENTER);
         
         List<Property> item= d.readMajetok();
-        for (int i=0;i<item.size();i++)    jComboBox1.addItem(item.get(i).getKind());
+        for (int i=0;i<item.size();i++)  demoList.addElement(item.get(i).getName());
+        
+ p2.add(JList1);
+        
         //  f.add(jButton1,new BorderLayout().SOUTH);f.add(jComboBox1, new BorderLayout().NORTH);
     } catch (SQLException ex) {
         Logger.getLogger(MajetokDelete.class.getName()).log(Level.SEVERE, null, ex);
@@ -56,7 +67,6 @@ JPanel p2=new JPanel();
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
@@ -70,7 +80,7 @@ JPanel p2=new JPanel();
             }
         });
 
-        jLabel1.setText("Kind");
+        jLabel1.setText("Name");
 
         jButton2.setText("BACK");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -89,30 +99,26 @@ JPanel p2=new JPanel();
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox1, 0, 69, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(jButton1)
                         .addGap(107, 107, 107)
                         .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(105, 105, 105)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(121, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addContainerGap()
                 .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78)
+                .addGap(137, 137, 137)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -125,8 +131,8 @@ JPanel p2=new JPanel();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        String j=  jComboBox1.getSelectedItem().toString();
-        d.deletemajetok(j);
+      String j= JList1.getSelectedValue().toString();
+       d.deletemajetok(j);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -144,7 +150,6 @@ JPanel p2=new JPanel();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables

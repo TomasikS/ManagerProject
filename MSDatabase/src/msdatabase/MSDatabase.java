@@ -146,14 +146,14 @@ void add(Property p) throws SQLException {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-          String sql = "insert into Contacts(Kind, Supplier, Country, Providing, Junking)"
-                        + "values (?, ?, ?, ?, ?)";
+          String sql = "insert into Property(Typ, Name, Dodavatel,  SposobObstarania, SposobVyradenia )"
+                        + "values (?, ?, ?, ?,?)";
                 
                 PreparedStatement preparedStmt = conn.prepareStatement(sql);
                 
                 preparedStmt.setString (1, p.getKind());
-                preparedStmt.setString   (2, p.getSupplier());
-                preparedStmt.setString (3, p.getCountry());
+                preparedStmt.setString   (2, p.getName());
+                preparedStmt.setString (3, p.getSupplier());
                 preparedStmt.setString (4, p.getProviding());
                     preparedStmt.setString (5, p.getJunking());
               
@@ -178,14 +178,15 @@ void add(Property p) throws SQLException {
       while (rs.next())
       {
        
-        String Kind =rs.getString("Kind");
-        String  Supplier = rs.getString("Supplier");
-        String Country= rs.getString("Country");
-              String Providing = rs.getString("Providing");
-               String Junking = rs.getString("Junking");
+        String Kind =rs.getString("Typ");
+          String Name =rs.getString("Name");
+        String  Supplier = rs.getString("Dodavatel");
+       // String Country= rs.getString("Country");
+              String Providing = rs.getString("SposobObstarania");
+               String Junking = rs.getString("SposobVyradenia");
         
 
-      Property e=new Property(Kind, Supplier, Country, Providing, Junking);
+      Property e=new Property(Kind, Name, Supplier,  Providing, Junking);
       am.add(e);
       
       
@@ -199,7 +200,7 @@ void add(Property p) throws SQLException {
     void deletemajetok(String kind) {
      try {
          Connection con = DriverManager.getConnection(url, user, password);
-         String sql = "delete from Property where Kind = ?";
+         String sql = "delete from Property where Name = ?";
          PreparedStatement preparedStmt = con.prepareStatement(sql);
          preparedStmt.setString(1, kind);
          preparedStmt.execute();

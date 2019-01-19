@@ -10,6 +10,19 @@ package msdatabase;
  * @author Lenovo
  */
 public class Property {
+String  Kind;
+String Supplier; 
+String Providing; 
+String Junking;
+String Name;
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String Name) {
+        this.Name = Name;
+    }
+
 
     public String getKind() {
         return Kind;
@@ -27,13 +40,7 @@ public class Property {
         this.Supplier = Supplier;
     }
 
-    public String getCountry() {
-        return Country;
-    }
-
-    public void setCountry(String Country) {
-        this.Country = Country;
-    }
+  
 
     public String getProviding() {
         return Providing;
@@ -51,16 +58,14 @@ public class Property {
         this.Junking = Junking;
     }
 
-    public Property(String Kind, String Supplier, String Country, String Providing, String Junking) {
+    public Property(String Kind, String Name, String Supplier, String Providing, String Junking) {
         this.Kind = Kind;
+        
+        this.Name=Name;
         this.Supplier = Supplier;
-        this.Country = Country;
+ 
         this.Providing = Providing;
         this.Junking = Junking;
     }
-String  Kind;
-String Supplier; 
-String Country; 
-String Providing; 
-String Junking;
+
 }
