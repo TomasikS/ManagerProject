@@ -9,6 +9,9 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -67,6 +70,22 @@ MSDatabase app = new MSDatabase();
         menu.add(menuItem);
            menuItem.addActionListener(e -> {
             DeleteForm delEmployee = new DeleteForm();
+});
+           
+                   menuItem = new JMenuItem("History");
+       // menuItem.setMnemonic(KeyEvent.VK_D);
+        menu.add(menuItem);
+           menuItem.addActionListener(e -> {
+            try {
+                TableHistory t = new TableHistory();
+                
+                t.createContentPane();
+                
+                TableHistory.createAndShowGUI();
+            } catch (SQLException ex) {
+                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
 });
         
         menu = new JMenu("Contacts");
