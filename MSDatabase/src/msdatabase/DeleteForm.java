@@ -6,6 +6,7 @@
 package msdatabase;
 
 import java.awt.BorderLayout;
+import static java.awt.BorderLayout.NORTH;
 import java.awt.GridLayout;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import javax.swing.JPanel;
  * @author Lenovo
  */
 public class DeleteForm extends javax.swing.JFrame {
-private JFrame f = new JFrame("Second");
+private JFrame f = new JFrame("");
 MSDatabase d=new  MSDatabase();
    JPanel p1=new JPanel();
  JPanel p2=new JPanel();
@@ -32,22 +33,30 @@ MSDatabase d=new  MSDatabase();
     public DeleteForm() {
     try {
         initComponents(); f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.setSize(300,300);
-        f.setVisible(true);f.show();
-               p1.add(jTextField1);
+        f.setSize(300,200);
+        f.setVisible(true);f.show() ;
+             
+         
                 
-                p2.add(jButton1);
-                
-                p1.add(jComboBox1);//f.add(jTextField1);
-        
-        f.add(p1, new BorderLayout().NORTH);
-            f.add(p2, new BorderLayout().SOUTH);
+             
+                   p1.add(jLabel1); 
+                   
+                   
+                   p2.add(jTextField1);
+               p2.add(jComboBox1);
+                  p2.add(jButton1);   
+                p2.add(jButton2);
+               p2.setLayout(new GridLayout(3,1));
+                //f.add(jTextField1);
+        //  p1.setLayout();
+     f.add(p1, new BorderLayout().NORTH);   f.add(p2, new BorderLayout().SOUTH);
+            
         
         
         
         List<Employee> item= d.read();
         for (int i=0;i<item.size();i++)    jComboBox1.addItem(String.valueOf(item.get(i).getFirstname()));
-        GridLayout g=new GridLayout(1,1);f.setLayout(g);
+      //  GridLayout g=new GridLayout(1,1);f.setLayout(g);
 
     } catch (SQLException ex) {
         Logger.getLogger(DeleteForm.class.getName()).log(Level.SEVERE, null, ex);
@@ -67,6 +76,7 @@ MSDatabase d=new  MSDatabase();
         jComboBox1 = new javax.swing.JComboBox<>();
         jTextField1 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,6 +107,8 @@ MSDatabase d=new  MSDatabase();
             }
         });
 
+        jLabel1.setText("DELETE EMPLOYEE");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -114,11 +126,17 @@ MSDatabase d=new  MSDatabase();
                         .addGap(89, 89, 89)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(88, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(99, 99, 99))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(84, Short.MAX_VALUE)
+                .addGap(44, 44, 44)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,6 +185,7 @@ MSDatabase d=new  MSDatabase();
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

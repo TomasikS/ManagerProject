@@ -21,7 +21,7 @@ import javax.swing.JPanel;
  * @author Lenovo
  */
 public class UpdateForm extends javax.swing.JFrame {
-private JFrame f = new JFrame("Second");
+private JFrame f = new JFrame("");
 MSDatabase m=new MSDatabase();List<Employee> contacts=new ArrayList();
     /**
      * Creates new form UpdateForm
@@ -35,19 +35,23 @@ MSDatabase m=new MSDatabase();List<Employee> contacts=new ArrayList();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setSize(400,350);
         f.setVisible(true);
-        GridLayout g=new GridLayout(2,2);
+       // GridLayout g=new GridLayout(3,2);
         JPanel j1=new JPanel();
         JPanel j2=new JPanel();
-        j1.add(jLabel1);
-        j1.add(jComboBox1);
+        
         j1.add(jLabel3);
-        j1.add(jLabel2);
-        j1.add(jTextField1);
-        j1.setLayout(g);
+        j2.add(jLabel1);
+        j2.add(jComboBox1);
+        j2.add(jLabel2);
+       // j2.add(jLabel2);
+        j2.add(jTextField1);
         j2.add(jButton1 ); j2.add(jButton2 );
         
+        j2.setLayout(new GridLayout(3,2));
         
-        f.add(j1, BorderLayout.NORTH); f.add(j2, BorderLayout.SOUTH);
+        
+        
+        f.add(j1, BorderLayout.CENTER); f.add(j2, BorderLayout.SOUTH);
         
         
         contacts=m.read(); 
