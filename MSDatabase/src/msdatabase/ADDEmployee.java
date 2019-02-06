@@ -185,14 +185,16 @@ String adress=jTextField4.getText(); ;
     } catch (SQLException ex) {
         Logger.getLogger(ADDEmployee.class.getName()).log(Level.SEVERE, null, ex);
     }
+    
+ 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
-         GUI m= new GUI();
-        m.createAndShowGUI();
-        
+     //    GUI m= new GUI();
+      //  m.createAndShowGUI();
+            f.dispose(); 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed

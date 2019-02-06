@@ -75,7 +75,7 @@ panel2.add(jButton2);
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hmotný", "Nehmotný", "Finančný" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "material", "immaterial", "finance" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -185,8 +185,10 @@ panel2.add(jButton2);
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
    
-        GUI m= new GUI();
-        m.createAndShowGUI();
+       // GUI m= new GUI();
+      //  m.createAndShowGUI();  
+        
+        f.dispose(); 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

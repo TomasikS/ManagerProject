@@ -7,7 +7,6 @@ package msdatabase;
 
 
 import java.awt.BorderLayout;
-import java.awt.GridLayout;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -47,6 +46,11 @@ JPanel p2=new JPanel();
          f.add(p2, new BorderLayout().CENTER);
         
         List<Property> item= d.readMajetok();
+        
+      
+        
+        
+        
         for (int i=0;i<item.size();i++)  demoList.addElement(item.get(i).getName());
         
  p2.add(JList1);
@@ -138,8 +142,10 @@ JPanel p2=new JPanel();
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
-        GUI m= new GUI();
-        m.createAndShowGUI();
+       // GUI m= new GUI();
+       // m.createAndShowGUI(); 
+        
+        f.dispose(); 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

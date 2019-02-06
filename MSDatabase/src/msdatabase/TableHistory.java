@@ -42,7 +42,7 @@ public class TableHistory {
         
         ArrayList<Employee> e=new   ArrayList();
       
-        e=(ArrayList<Employee>) d.read();
+        e=(ArrayList<Employee>) d.readHistory();
         int capacity=e.size();
        System.out.println("cap"+capacity);
            Object[]pole1 = new Object[capacity];

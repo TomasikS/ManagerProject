@@ -196,8 +196,10 @@ MSDatabase m=new MSDatabase();List<Employee> contacts=new ArrayList();
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-       GUI m= new GUI();
-        m.createAndShowGUI();  
+      /// GUI m= new GUI();
+     ///   m.createAndShowGUI(); 
+        
+        f.dispose();  
     }//GEN-LAST:event_jButton2ActionPerformed
 
    

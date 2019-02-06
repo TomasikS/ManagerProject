@@ -112,6 +112,41 @@ public class MSDatabase {
   }
  
  
+  List readHistory () throws SQLException{
+     List<Employee> ae=new ArrayList();
+     Connection con = DriverManager.getConnection(url, user, password);
+  String query = "SELECT * FROM employee_history";
+
+      Statement st = con.createStatement();
+      
+   
+      ResultSet rs = st.executeQuery(query);
+      
+
+      while (rs.next())
+      {
+        int id = rs.getInt("ID");
+        String firstName = rs.getString("Firstname");
+        String lastName = rs.getString("Lastname");
+        int salary= rs.getInt("Salary");
+              String adress = rs.getString("Adress");
+      Employee e=new Employee(id,firstName,lastName, salary, adress);
+      ae.add(e);
+      
+      
+      }
+      st.close(); for (int i=0;i<ae.size();i++)System.out.print(ae.get(i).getId());
+       return ae; 
+  }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
   void add(Contact p) throws SQLException {
@@ -188,8 +223,8 @@ void add(Property p) throws SQLException {
 
       Property e=new Property(Kind, Name, Supplier,  Providing, Junking);
       am.add(e);
-      
-      
+    //  System.out.println(am.get(0).getKind()); 
+
       }
       st.close();
        return am; 

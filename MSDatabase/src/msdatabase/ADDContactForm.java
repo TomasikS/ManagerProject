@@ -7,8 +7,6 @@ package msdatabase;
 
 
 import java.awt.BorderLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -81,6 +79,11 @@ Contact p;
 
         jButton1.setText("ADD");
         jButton1.setActionCommand("");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Firstname");
 
@@ -165,13 +168,17 @@ Contact p;
         
         GUI m= new GUI();
         m.createAndShowGUI();
-      
+          j.dispose(); 
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
 
