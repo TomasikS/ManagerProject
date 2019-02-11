@@ -188,6 +188,17 @@ Contact p;
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    boolean checkinput(){
+    
+    boolean k=true;
+    if(jTextField1.getText().length()==0) k= false;
+       if(jTextField2.getText().length()==0) k= false;
+          if(jTextField3.getText().length()==0) k= false;
+                if(jTextField5.getText().length()==0) k= false;
+                else k=true;
+                
+                return k;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

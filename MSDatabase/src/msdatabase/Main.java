@@ -151,8 +151,8 @@ public static String username;
         DatabaseLogin l=new DatabaseLogin();
     try {
         u= l.read();
-        System.out.println(u.get(1).login);
-         System.out.println(u.get(2).login);
+       // System.out.println(u.get(1).login);
+         //System.out.println(u.get(2).login);
         
     } catch (SQLException ex) {
         Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -166,8 +166,10 @@ public static String username;
         { 
        
         GUI m= new GUI();
-        m.createAndShowGUI();fr.setVisible(false);
+        m.createAndShowGUI();
        setUsername("manager");
+       Stred2.setUsername("manager");
+       fr.setVisible(false);
         }
         
         
@@ -175,14 +177,14 @@ public static String username;
         { 
        
         GUI m= new GUI();
-        m.createAndShowGUI();fr.setVisible(false);       setUsername("host");
+        m.createAndShowGUI();fr.setVisible(false);       setUsername("host"); Stred2.setUsername("host");
         }
         
           if((u.get(2).login.substring(0, 5).equals(jTextField1.getText())) &&(u.get(2).heslo.substring(0, 5).equals(jPasswordField1.getText().toString())))
         { 
        
         GUI m= new GUI();
-        m.createAndShowGUI();fr.setVisible(false);       setUsername("admin");
+        m.createAndShowGUI();fr.setVisible(false);       setUsername("admin"); Stred2.setUsername("admin");
         }   
         
         
