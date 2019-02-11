@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -21,7 +22,7 @@ public class Majetok extends javax.swing.JFrame {
 JFrame f=new JFrame(); JPanel panel1=new JPanel();JPanel panel2=new JPanel();
 
 MSDatabase d= new MSDatabase(); 
-
+String s=Main.getUsername();
     /**
      * Creates new form Majetok
      */
@@ -192,13 +193,19 @@ panel2.add(jButton2);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    try {
+
+      if((s.equals("manager"))   || (s.equals("admin"))) 
+        {
+        try {
         // TODO add your handling code here:
         
         d.add(new Property(jComboBox1.getSelectedItem().toString(),jTextField3.getText(),jTextField2.getText(), jTextField4.getText(),jTextField5.getText()  ) );
     } catch (SQLException ex) {
         Logger.getLogger(Majetok.class.getName()).log(Level.SEVERE, null, ex);
-    }
+    }  } 
+        
+      else  {JOptionPane.showMessageDialog( f,"You dont have permission" );
+          } 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed

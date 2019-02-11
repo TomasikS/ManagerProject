@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -23,6 +24,8 @@ import javax.swing.JPanel;
 public class UpdateForm extends javax.swing.JFrame {
 private JFrame f = new JFrame("");
 MSDatabase m=new MSDatabase();List<Employee> contacts=new ArrayList();
+String s=Main.getUsername();
+
     /**
      * Creates new form UpdateForm
      */
@@ -167,7 +170,8 @@ MSDatabase m=new MSDatabase();List<Employee> contacts=new ArrayList();
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    
+
+       if((s.equals("manager"))   || (s.equals("admin"))) {
     try {
         // TODO add your handling code here:
        int pom = 0; 
@@ -191,7 +195,14 @@ MSDatabase m=new MSDatabase();List<Employee> contacts=new ArrayList();
     } catch (SQLException ex) {
         Logger.getLogger(UpdateForm.class.getName()).log(Level.SEVERE, null, ex);
     }
-      
+        }   
+        
+   
+          else  {JOptionPane.showMessageDialog(f,"You dont have permission" );
+        
+        }
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

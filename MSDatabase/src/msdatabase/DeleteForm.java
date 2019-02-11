@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -26,7 +27,7 @@ private JFrame f = new JFrame("");
 MSDatabase d=new  MSDatabase();
    JPanel p1=new JPanel();
  JPanel p2=new JPanel();
-
+ String s=Main.getUsername();
 /**
      * Creates new form DeleteForm
      */
@@ -151,14 +152,23 @@ MSDatabase d=new  MSDatabase();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    try {
+
+      if((s.equals("manager"))   || (s.equals("admin"))) {
+        
+        try {
         // TODO add your handling code here:
         String  pr= jComboBox1.getSelectedItem().toString();
         System.out.println(pr);
         d.delete(pr);
     } catch (SQLException ex) {
         Logger.getLogger(DeleteForm.class.getName()).log(Level.SEVERE, null, ex);
-    }
+    }}
+         
+        else  {JOptionPane.showMessageDialog(f,"You dont have permission" );
+    
+    }  
+         
+         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed

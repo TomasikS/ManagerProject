@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -21,9 +22,9 @@ import javax.swing.JPanel;
  * @author Lenovo
  */
 public class ADDEmployee extends javax.swing.JPanel {
-private JFrame f = new JFrame("Second");   MSDatabase d= new MSDatabase();
+private JFrame f = new JFrame(" ");   MSDatabase d= new MSDatabase();
 JPanel panel1=new JPanel(); JPanel panel2=new JPanel();
-
+ String s=Main.getUsername();
     /**
      * Creates new form ADDEmployee
      */
@@ -169,7 +170,7 @@ panel1.add(jTextField4);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   
+    if((s.equals("manager"))   || (s.equals("admin"))) {
 String firstname=jTextField2.getText(); String lastname=jTextField1.getText(); 
 int salary=Integer.parseInt(jTextField3.getText());  
 
@@ -185,8 +186,11 @@ String adress=jTextField4.getText(); ;
     } catch (SQLException ex) {
         Logger.getLogger(ADDEmployee.class.getName()).log(Level.SEVERE, null, ex);
     }
+       
+  } 
+    else  {JOptionPane.showMessageDialog( f,"You dont have permission" );
     
- 
+    }  
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

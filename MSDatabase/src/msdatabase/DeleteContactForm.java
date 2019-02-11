@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.ListModel;
 
@@ -29,7 +30,10 @@ JFrame f=new JFrame();
    JPanel p1=new JPanel();
       JPanel p2=new JPanel();
    JList jl=new JList();
-   
+    String s=Main.getUsername();
+    
+    
+    
     public DeleteContactForm() {
         initComponents();
         List<Contact>  poml= d.readContacts();
@@ -116,14 +120,23 @@ JFrame f=new JFrame();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    try {
+
+      if((s.equals("manager"))   || (s.equals("admin"))) {
+        
+        try {
         // TODO add your handling code here:
         String s=jl.getSelectedValue().toString();
         
         d.deleteContact(s);f.repaint();
     } catch (SQLException ex) {
         Logger.getLogger(DeleteContactForm.class.getName()).log(Level.SEVERE, null, ex);
-    }
+    } } 
+        
+        else  {JOptionPane.showMessageDialog( f,"You dont have permission" );
+    
+    }  
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

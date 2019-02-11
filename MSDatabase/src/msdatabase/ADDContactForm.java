@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -23,6 +24,8 @@ JFrame j=new JFrame();
 MSDatabase d=new MSDatabase();
 Contact p;
  JPanel panel = new JPanel(); JPanel panel2 = new JPanel();
+ String s=Main.getUsername();
+ 
     /**
      * Creates new form ADDContactForm
      */
@@ -43,6 +46,8 @@ Contact p;
         panel.add(jButton1);
             panel.add(jButton2);
         
+             if((s.equals("manager"))   || (s.equals("admin")))   {
+            
        jButton1.addActionListener(e -> {
             try {
                 p=new Contact(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField5.getText());
@@ -52,8 +57,11 @@ Contact p;
                 Logger.getLogger(ADDContactForm.class.getName()).log(Level.SEVERE, null, ex);
             }
 });
-    }
-
+    }else  {JOptionPane.showMessageDialog( j,"You dont have permission" );
+}
+    
+}
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

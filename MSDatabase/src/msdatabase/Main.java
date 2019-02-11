@@ -24,12 +24,23 @@ public class Main extends javax.swing.JFrame {
 JFrame fr=new JFrame();
 JPanel p1=new JPanel();
 JPanel p2= new JPanel();
+public static String username;
+
+    public static String getUsername() {
+        return username;
+    }
+
+    public static void setUsername(String u) {
+        username = u;
+    }
+
+
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
-      fr.setSize(300, 250);
+      fr.setSize(400, 350);
          p1.add(jLabel1);
          p1.add(jTextField1);
          
@@ -47,6 +58,8 @@ JPanel p2= new JPanel();
         p1.setBackground(Color.ORANGE);
         p2.setBackground(Color.ORANGE);
         fr.getContentPane().setBackground(Color.ORANGE);
+        
+       fr.setLocationRelativeTo(null);
     }
 
     /**
@@ -138,6 +151,9 @@ JPanel p2= new JPanel();
         DatabaseLogin l=new DatabaseLogin();
     try {
         u= l.read();
+        System.out.println(u.get(1).login);
+         System.out.println(u.get(2).login);
+        
     } catch (SQLException ex) {
         Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -148,14 +164,28 @@ JPanel p2= new JPanel();
        
         if((u.get(0).login.substring(0, 7).equals(jTextField1.getText())) &&(u.get(0).heslo.substring(0, 10).equals(jPasswordField1.getText().toString())))
         { 
-        
-  
-        
-        System.out.print("jk");
-        
-        
+       
         GUI m= new GUI();
-        m.createAndShowGUI();fr.setVisible(false);}
+        m.createAndShowGUI();fr.setVisible(false);
+       setUsername("manager");
+        }
+        
+        
+         if((u.get(1).login.substring(0, 4).equals(jTextField1.getText())) &&(u.get(1).heslo.substring(0, 4).equals(jPasswordField1.getText().toString())))
+        { 
+       
+        GUI m= new GUI();
+        m.createAndShowGUI();fr.setVisible(false);       setUsername("host");
+        }
+        
+          if((u.get(2).login.substring(0, 5).equals(jTextField1.getText())) &&(u.get(2).heslo.substring(0, 5).equals(jPasswordField1.getText().toString())))
+        { 
+       
+        GUI m= new GUI();
+        m.createAndShowGUI();fr.setVisible(false);       setUsername("admin");
+        }   
+        
+        
   
     }//GEN-LAST:event_jButton1ActionPerformed
 

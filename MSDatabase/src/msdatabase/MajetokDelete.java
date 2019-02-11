@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -27,6 +28,9 @@ JPanel p2=new JPanel();
 
  DefaultListModel demoList = new DefaultListModel();
  JList JList1= new JList(demoList);
+ String s=Main.getUsername();
+ 
+ 
     /**
      * Creates new form MajetokDelete
      */
@@ -134,9 +138,12 @@ JPanel p2=new JPanel();
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
+        if((s.equals("manager"))   || (s.equals("admin"))) {
       String j= JList1.getSelectedValue().toString();
        d.deletemajetok(j);
+        }  
+          else  {JOptionPane.showMessageDialog( f,"You dont have permission" );
+      }    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

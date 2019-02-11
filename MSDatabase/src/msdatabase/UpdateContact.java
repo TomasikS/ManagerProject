@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -25,6 +26,8 @@ JPanel p1=new JPanel();
 JPanel p2=new JPanel();
   List<String> pomm=new ArrayList();
         List<String> pommm=new ArrayList();
+        String s=Main.getUsername();
+        
     /**
      * Creates new form UpdateContact
      */
@@ -139,7 +142,10 @@ JPanel p2=new JPanel();
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    String s1=jl.getSelectedValue().toString();
+  
+     if((s.equals("manager"))   || (s.equals("admin"))) 
+        {
+        String s1=jl.getSelectedValue().toString();
     String s2=jTextField1.getText();
     System.out.println(s1);
         System.out.println(s2);
@@ -147,7 +153,10 @@ JPanel p2=new JPanel();
     
   Contact op=new Contact(s1,s2);
   System.out.println(op.Email);
-  d.updateContact(op);
+  d.updateContact(op); 
+        } 
+     else  {JOptionPane.showMessageDialog( f,"You dont have permission" );   
+    }      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
