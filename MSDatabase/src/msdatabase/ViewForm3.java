@@ -25,9 +25,13 @@ import javax.swing.JTable;
  *
  * @author Lenovo
  */
-class ViewForm3 {
+class ViewForm3 { 
+    
+   static JFrame frame = new JFrame("");
+    
+    
   public Container createContentPane() throws SQLException
-    {   
+    {     
            
         JButton b2=new JButton();
         MSDatabase d=new MSDatabase();
@@ -76,7 +80,7 @@ class ViewForm3 {
             @Override
             public void actionPerformed(ActionEvent e) {
           
-            
+         frame.dispose();
       }
        
        });
@@ -86,7 +90,7 @@ class ViewForm3 {
 }
     
       static void createAndShowGUI() {
-    JFrame frame = new JFrame("");
+ 
        try {
            JFrame.setDefaultLookAndFeelDecorated(true);
           

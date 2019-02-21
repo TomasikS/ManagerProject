@@ -24,6 +24,7 @@ public class MSDatabase {
  private final String url = "jdbc:postgresql://localhost/test";
     private final String user = "root";
     private final String password = "root";
+         private final String url2 = "jdbc:postgresql://localhost/acess";
     /**
      * @param args the command line arguments
  
@@ -327,6 +328,39 @@ void add(Property p) throws SQLException {
   
   
   }
+      
+      
+     void add(User p) throws SQLException {
+         Connection conn = null;
+         try {
+            conn = DriverManager.getConnection(url2, user, password);
+            System.out.println("Connected to the PostgreSQL server successfully.");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+          String sql = "insert into Logins(login,heslo)"
+                        + "values (?, ?)";
+                
+                PreparedStatement preparedStmt = conn.prepareStatement(sql);
+                
+                preparedStmt.setString (1, p.getLogin());
+                preparedStmt.setString   (2, p.getHeslo());
+   
+              
+                    preparedStmt.execute();
+           conn.close();
+             
+                
+            }  
+      
+      
+      
+      
+      
+      
+      
+      
+      
     
     
 }

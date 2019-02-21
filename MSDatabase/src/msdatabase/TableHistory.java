@@ -33,7 +33,7 @@ import javax.swing.table.TableRowSorter;
  * @author Lenovo
  */
 public class TableHistory {
-    
+  static  JFrame frame = new JFrame("");
    public Container createContentPane() throws SQLException
     { 
         JButton b1=new JButton();
@@ -100,7 +100,7 @@ sorter.sort();
                     
                     ArrayList<Employee> fe=new   ArrayList();
                     
-                    fe=(ArrayList<Employee>) d.read();      
+                    fe=(ArrayList<Employee>) d.readHistory();      
                     int capacity=fe.size();
                     
                     try {
@@ -153,8 +153,7 @@ sorter.sort();
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               GUI m= new GUI();
-        m.createAndShowGUI();   
+             frame.dispose();
               
             
       }
@@ -169,7 +168,7 @@ sorter.sort();
 
        try {
            JFrame.setDefaultLookAndFeelDecorated(true);
-           JFrame frame = new JFrame("");
+            
            TableHistory demo = new TableHistory();
            frame.setContentPane(demo.createContentPane());
            

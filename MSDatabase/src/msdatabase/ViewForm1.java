@@ -27,8 +27,10 @@ import javax.swing.JTable;
  */
 public class ViewForm1 {
     
-
-    public Container createContentPane() throws SQLException
+ static JFrame frame = new JFrame("");
+    
+ 
+ public Container createContentPane() throws SQLException
     {   
            
         JButton b2=new JButton();
@@ -74,7 +76,7 @@ public class ViewForm1 {
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-          
+          frame.dispose();
             
       }
        
@@ -85,7 +87,7 @@ public class ViewForm1 {
 }
     
       static void createAndShowGUI() {
-    JFrame frame = new JFrame("");
+    
        try {
            JFrame.setDefaultLookAndFeelDecorated(true);
           
