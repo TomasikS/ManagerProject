@@ -12,6 +12,17 @@ package msdatabase;
 public class User {
 public String login;
     public String heslo;
+ int id;
+ 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+   
+    
     
     public String getLogin() {
         return login;
@@ -30,9 +41,12 @@ public String login;
     }
 
     
-    public User(String login, String heslo) {
+    public User( int i, String login, String heslo) {
         this.login = login;
         this.heslo = heslo;
+        this.id=i;
     }
-    
+    public String ToString(){
+         return " "+this.login+" "+this.heslo;
+     }
 }

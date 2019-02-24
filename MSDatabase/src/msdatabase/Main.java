@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -146,48 +147,95 @@ public static String username;
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-         
-        List<User> u=new ArrayList();
-        DatabaseLogin l=new DatabaseLogin();
+        
     try {
-        u= l.read();
-       // System.out.println(u.get(1).login);
-         //System.out.println(u.get(2).login);
+        DatabaseLogin l=new DatabaseLogin();
+        HashMap<Integer,User> map = new HashMap<Integer,User>();
+       
+        map= l.read();
+   
+        String login;
+        String heslo;
+        login=jTextField1.getText();
+        heslo=jPasswordField1.getText();
+          /// System.out.print(map.get(1));
+        ///System.out.print(login);
+        
+      if((map.get(1).login.equals(login)) && (map.get(1).heslo.equals(heslo))           )
+            {
+        
+        GUI m= new GUI();
+        m.createAndShowGUI();
+        setUsername("manager");
+        Stred2.setUsername("manager");
+        
+            map= l.read();
+                for (int u=1;u<map.size();u++)    if (map.get(u).id==1) setUsername("manager");
+ 
+     
+     
+     
+        fr.setVisible(false);
+        }
+        
+         if((map.get(2).login.equals(login)) && (map.get(2).heslo.equals(heslo))           )
+            {
+        
+        GUI m= new GUI();
+        m.createAndShowGUI();
+        setUsername("admin");
+        Stred2.setUsername("admin");
+        
+            map= l.read();
+          
+     for (int u=1;u<map.size();u++)    if (map.get(u).id==2) setUsername("admin");
+     
+     
+        fr.setVisible(false);
+        }
+         
+          
+            
+            
+                
+                
+             
+         else {   setUsername("host");
+                  map= l.read();
+            /// System.out.println(  "heslo mapa"+map.get(4).heslo);
+             
+                   ///  System.out.println( "heslo mapa"+ map.get(4).login );
+             login=jTextField1.getText(); 
+               heslo=jPasswordField1.getText();
+             
+            // System.out.println( login);System.out.println( heslo);
+                       
+                for (int u=2;u<=map.size();u++)  
+           
+              if((map.get(u).login.equals(login)) && (map.get(u).heslo.equals(heslo))           )
+                      
+                 {      
+          
+          
+             
+         GUI m= new GUI();
+        m.createAndShowGUI();
+     
+   
+     
+        fr.setVisible(false);
+         
+         
+         
+         }}    
+         
+         
+         
+         
         
     } catch (SQLException ex) {
         Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
     }
-              /*System.out.println(u.get(0).login.substring(0, 7).length());
-       System.out.println(u.get(0).heslo.length());
-         System.out.println(jTextField1.getText().length());
-         System.out.println(jTextField2.getText().length());*/
-       
-        if((u.get(0).login.substring(0, 7).equals(jTextField1.getText())) &&(u.get(0).heslo.substring(0, 10).equals(jPasswordField1.getText().toString())))
-        { 
-       
-        GUI m= new GUI();
-        m.createAndShowGUI();
-       setUsername("manager");
-       Stred2.setUsername("manager");
-       fr.setVisible(false);
-        }
-        
-        
-         if((u.get(1).login.substring(0, 4).equals(jTextField1.getText())) &&(u.get(1).heslo.substring(0, 4).equals(jPasswordField1.getText().toString())))
-        { 
-       
-        GUI m= new GUI();
-        m.createAndShowGUI();fr.setVisible(false);       setUsername("host"); Stred2.setUsername("host");
-        }
-        
-          if((u.get(2).login.substring(0, 5).equals(jTextField1.getText())) &&(u.get(2).heslo.substring(0, 5).equals(jPasswordField1.getText().toString())))
-        { 
-       
-        GUI m= new GUI();
-        m.createAndShowGUI();fr.setVisible(false);       setUsername("admin"); Stred2.setUsername("admin");
-        }   
-        
-        
   
     }//GEN-LAST:event_jButton1ActionPerformed
 

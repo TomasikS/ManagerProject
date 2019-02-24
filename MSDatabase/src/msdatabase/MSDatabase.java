@@ -126,12 +126,12 @@ public class MSDatabase {
 
       while (rs.next())
       {
-        int id = rs.getInt("ID");
+///        int id = rs.getInt("ID");
         String firstName = rs.getString("Firstname");
         String lastName = rs.getString("Lastname");
         int salary= rs.getInt("Salary");
               String adress = rs.getString("Adress");
-      Employee e=new Employee(id,firstName,lastName, salary, adress);
+      Employee e=new Employee(firstName,lastName, salary, adress);
       ae.add(e);
       
       
@@ -352,7 +352,8 @@ void add(Property p) throws SQLException {
              
                 
             }  
-      
+
+  
       
       
       

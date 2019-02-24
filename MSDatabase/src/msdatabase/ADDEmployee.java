@@ -170,7 +170,9 @@ panel1.add(jTextField4);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    if((s.equals("manager"))   || (s.equals("admin"))) {
+   
+       
+        if((s.equals("manager"))   || (s.equals("admin"))) {
 String firstname=jTextField2.getText(); String lastname=jTextField1.getText(); 
 int salary=Integer.parseInt(jTextField3.getText());  
 

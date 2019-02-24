@@ -40,11 +40,11 @@ public class TableHistory {
         JButton b2=new JButton();
         MSDatabase d=new MSDatabase();
         
-        ArrayList<Employee> e=new   ArrayList();
+        List<Employee> e=new   ArrayList();
       
         e=(ArrayList<Employee>) d.readHistory();
         int capacity=e.size();
-       System.out.println("cap"+capacity);
+       //System.out.println("cap"+capacity);
            Object[]pole1 = new Object[capacity];
             Object[]pole2 = new Object[capacity];
             Object[]pole3 = new Object[capacity];
@@ -98,23 +98,29 @@ sorter.sort();
                
                 try {
                     
-                    ArrayList<Employee> fe=new   ArrayList();
+                  List<Employee> fe=new   ArrayList();
                     
                     fe=(ArrayList<Employee>) d.readHistory();      
                     int capacity=fe.size();
                     
-                    try {
-                        ArrayList<Employee> ee = (ArrayList<Employee>) d.read();
-                        for (int i=0; i<capacity-1;i++)    pole3[i]=ee.get(i).salary;
+               //     try {
+                       // ArrayList<Employee> ee = (ArrayList<Employee>) d.read();
+                       // for (int i=0; i<=capacity-1;i++)    pole3[i]=fe.get(i).salary;
                         Vector<Integer> t= new Vector();
-                        for (int i=0; i<capacity-1;i++) t.add(ee.get(i).salary);
-                        Collections.sort(t);
-                        String[] String_Array = new  String[capacity-1];
+                        for (int i=0; i<=capacity-1;i++) t.add(fe.get(i).salary);
                         
-                        for (int i=0; i<capacity-1;i++)
+                        System.out.println(t);
+                        
+                        Collections.sort(t);
+                         System.out.println(t);
+                        
+                        
+                        String[] String_Array = new  String[t.size()];
+                        
+                        for (int i=0; i<=t.size()-1;i++)
                             String_Array[i]=t.toArray()[i].toString();
                         
-                        for (int i=0; i<capacity-1;i++)
+                        for (int i=0; i<=t.size()-1;i++)
                             
                             playerdata[i][2]=Integer.parseInt(String_Array[i] );
                         
@@ -127,23 +133,20 @@ sorter.sort();
                         
                         JPanel totalGUI = new JPanel();
                         totalGUI.add(scrollPane, new BorderLayout().NORTH);
-                        
+                       totalGUI.repaint();
                         
                         
                         totalGUI.setOpaque(true);
-                    } catch (SQLException ex) {
-                        Logger.getLogger(TableHistory.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    
-                } catch (SQLException ex) {
+                    } catch (SQLException ex) { 
                     Logger.getLogger(TableHistory.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            
-      }
+                } 
+                    
+                }  
+      
        
        });
        
-       
+
        
        
        
