@@ -25,7 +25,7 @@ public class Main extends javax.swing.JFrame {
 JFrame fr=new JFrame();
 JPanel p1=new JPanel();
 JPanel p2= new JPanel();
-public static String username;
+public static  String username;
 
     public static String getUsername() {
         return username;
@@ -61,6 +61,7 @@ public static String username;
         fr.getContentPane().setBackground(Color.ORANGE);
         
        fr.setLocationRelativeTo(null);
+       //setUsername(jTextField1.getText());
     }
 
     /**
@@ -150,7 +151,7 @@ public static String username;
         
     try {
         DatabaseLogin l=new DatabaseLogin();
-        HashMap<Integer,User> map = new HashMap<Integer,User>();
+        HashMap<Integer,User> map = new HashMap<>();
        
         map= l.read();
    
@@ -167,7 +168,7 @@ public static String username;
         GUI m= new GUI();
         m.createAndShowGUI();
         setUsername("manager");
-        Stred2.setUsername("manager");
+   
         
             map= l.read();
                 for (int u=1;u<map.size();u++)    if (map.get(u).id==1) setUsername("manager");
@@ -184,13 +185,18 @@ public static String username;
         GUI m= new GUI();
         m.createAndShowGUI();
         setUsername("admin");
-        Stred2.setUsername("admin");
-        
+       // Stred2.setUsername("admin");
+          // Stred2.username="admin";
             map= l.read();
           
-     for (int u=1;u<map.size();u++)    if (map.get(u).id==2) setUsername("admin");
+     for (int u=1;u<map.size();u++)    if (map.get(u).id==2){ 
+         
+      setUsername("admin");  
+    /// Stred2.username="admin";
      
+  //   Stred2.setUsername("admin");
      
+     }
         fr.setVisible(false);
         }
          

@@ -15,24 +15,26 @@ import java.util.logging.Logger;
  * @author Lenovo
  */
 public class HireForm extends javax.swing.JFrame {
-
+ HireDB hd=new  HireDB();
     /**
      * Creates new form HireForm
      */
     public HireForm() {
         initComponents();
-        HireDB hd=new  HireDB();
+       
         try {
             List<Order> item=hd.readOrder();
                List<Customer> item2=hd.readCustomer();
-     for (int i =0; i<item.size();i++)          jComboBox1.addItem(String.valueOf(i));
-               
-                jTextField2.setText(item2.get(0).Lastname);  
-              jTextField3.setText(item.get(0).name); 
-               jTextField4.setText(String.valueOf(item.get(0).OrderDate )); 
-                jTextField5.setText(String.valueOf(item.get(0).RemoteDate )); 
-                 jTextField6.setText(String.valueOf(item.get(0).price )); 
-              
+     for (int i =0; i<item2.size();i++)    jTextField2.setText(item2.get(i).Lastname);      
+                  for (int i =0; i<item.size();i++)    {  
+                      
+                      jComboBox1.addItem(Integer.toString(i));
+                
+              jTextField3.setText(item.get(i).name); 
+               jTextField4.setText(String.valueOf(item.get(i).OrderDate )); 
+                jTextField5.setText(String.valueOf(item.get(i).RemoteDate )); 
+                 jTextField6.setText(String.valueOf(item.get(i).price )); 
+     }
                  
               
         } catch (SQLException ex) {
@@ -76,13 +78,18 @@ public class HireForm extends javax.swing.JFrame {
 
         jLabel2.setText("Product");
 
-        jLabel3.setText("Date1");
+        jLabel3.setText("Orderdate");
 
-        jLabel4.setText("Date2");
+        jLabel4.setText("Remotedate");
 
         jLabel5.setText("Price");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Choose number of  Hire");
 
@@ -173,6 +180,24 @@ public class HireForm extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+     try {
+         // TODO add your handling code here:
+         
+         List<Order> item=hd.readOrder();
+         List<Customer> item2=hd.readCustomer();
+        int i= Integer.valueOf(jComboBox1.getSelectedItem().toString());
+         
+          jTextField2.setText(item2.get(0).Lastname);  
+         jTextField3.setText(item.get(i).name);
+         jTextField4.setText(String.valueOf(item.get(i).OrderDate ));
+         jTextField5.setText(String.valueOf(item.get(i).RemoteDate )); 
+         jTextField6.setText(String.valueOf(item.get(i).price ));
+     } catch (SQLException ex) {
+         Logger.getLogger(HireForm.class.getName()).log(Level.SEVERE, null, ex);
+     }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments

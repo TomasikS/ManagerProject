@@ -196,14 +196,25 @@ panel2.add(jButton2);
 
       if((s.equals("manager"))   || (s.equals("admin"))) 
         {
+            
+         if( checkinput()==true)  
+            
+            {
+            
         try {
         // TODO add your handling code here:
         
         d.add(new Property(jComboBox1.getSelectedItem().toString(),jTextField3.getText(),jTextField2.getText(), jTextField4.getText(),jTextField5.getText()  ) );
     } catch (SQLException ex) {
         Logger.getLogger(Majetok.class.getName()).log(Level.SEVERE, null, ex);
-    }  } 
+    }  
+        } 
         
+          if( checkinput()==false)  
+        JOptionPane.showMessageDialog( f,"Enter all values" );
+        
+        
+        } 
       else  {JOptionPane.showMessageDialog( f,"You dont have permission" );
           } 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -212,6 +223,21 @@ panel2.add(jButton2);
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    boolean checkinput(){
+    
+    boolean k=true;
+    
+    if(jComboBox1.getSelectedItem()== ""){k=false;}
+    if(jTextField4.getText().length()==0) k= false;
+       if(jTextField2.getText().length()==0) k= false;
+          if(jTextField3.getText().length()==0) k= false;
+                if(jTextField5.getText().length()==0) k= false;
+                else k=true;
+                
+                return k;
+    }
+    
+    
     /**
      * @param args the command line arguments
      */

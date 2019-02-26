@@ -49,14 +49,20 @@ Contact p;
              if((s.equals("manager"))   || (s.equals("admin")))   {
             
        jButton1.addActionListener(e -> {
-            try {
+          if (checkinput()==true)
+          
+          {  try {
                 p=new Contact(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField5.getText());
                 
                 d.add(p);
             } catch (SQLException ex) {
                 Logger.getLogger(ADDContactForm.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            } }
 });
+          
+      
+            
+            
     }else  {JOptionPane.showMessageDialog( j,"You dont have permission" );
 }
     
@@ -186,6 +192,9 @@ Contact p;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        if (checkinput()==false) {JOptionPane.showMessageDialog( j,"Enter all values" );
+}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     boolean checkinput(){

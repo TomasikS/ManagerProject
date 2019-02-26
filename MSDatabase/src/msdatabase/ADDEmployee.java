@@ -173,6 +173,13 @@ panel1.add(jTextField4);
    
        
         if((s.equals("manager"))   || (s.equals("admin"))) {
+            
+            if (checkinput()==false) {JOptionPane.showMessageDialog( f,"Enter all values" );
+}
+            
+               if (checkinput()==true) {
+   
+            
 String firstname=jTextField2.getText(); String lastname=jTextField1.getText(); 
 int salary=Integer.parseInt(jTextField3.getText());  
 
@@ -189,10 +196,10 @@ String adress=jTextField4.getText(); ;
         Logger.getLogger(ADDEmployee.class.getName()).log(Level.SEVERE, null, ex);
     }
        
-  } 
+   }  }
     else  {JOptionPane.showMessageDialog( f,"You dont have permission" );
-    
-    }  
+    }
+          
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

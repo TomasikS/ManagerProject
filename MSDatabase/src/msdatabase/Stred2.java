@@ -8,21 +8,22 @@ package msdatabase;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Lenovo
  */
 public class Stred2 extends javax.swing.JPanel {
-static String username=" ";
+ 
         
-     static void setUsername(String manager) {
-        username=manager;
-    }
+ // void setUsername(String manager) {
+   //     username=manager;
+  //  }
     
-         static String getUsername( ) {
-       return username;
-    }
+  //      String getUsername( ) {
+  //     return username;
+   // }
     
 public JFrame f=new JFrame();
     /**
@@ -34,13 +35,21 @@ public JFrame f=new JFrame();
         f.setLayout(new GridLayout(1,2));
         f.add(jButton1);  f.add(jButton2);
         jButton2=new JButton();
-        jButton2.disable();
- 
- 
- 
-     if(username.equals("admin"))jButton2.enable();
    
-         
+    }
+    
+    
+    
+    void check(){
+      String username=Main.getUsername();
+      jButton2.disable();
+     
+     System.out.println("pom"+Main.getUsername());
+     
+     
+     if(username.equals("admin"))jButton2.enable();
+          if(!username.equals("manager"))jButton2.disable();
+    
     }
 
     /**
@@ -95,15 +104,25 @@ public JFrame f=new JFrame();
         // TODO add your handling code here:
   
        Main.setUsername(""); Main m=new Main();GUI.frame.dispose();GUI.frame.setVisible(false);
-      Stred2.setUsername("");     jButton2.disable();
+   // setUsername("");  
+    jButton2.disable();
        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
-      OknoUser fr=new OknoUser();fr.setVisible(true);
+    String username=Main.getUsername();
+        
+      System.out.println(username);
       
+         if(username.equals("admin")){jButton2.enable(); OknoUser fr=new OknoUser();fr.setVisible(true); 
+         }
+         
+         else {
+         JOptionPane.showMessageDialog( f,"You dont have permision" );
+         }
+       
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
