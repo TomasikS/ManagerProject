@@ -16,12 +16,14 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import static junit.framework.Assert.assertEquals;
+import org.junit.Test;
 
 /**
  *
  * @author Lenovo
  */
-public class ADDEmployee extends javax.swing.JPanel {
+public class ADDEmployee extends JFrame {
 private JFrame f = new JFrame(" ");   MSDatabase d= new MSDatabase();
 JPanel panel1=new JPanel(); JPanel panel2=new JPanel();
  String s=Main.getUsername();
@@ -189,7 +191,7 @@ String adress=jTextField4.getText(); ;
     try {
         d.add(pom);
         
-        
+       JOptionPane.showMessageDialog( f,"ADDED NEW Employee" );
         
         // TODO add your handling code here:
     } catch (SQLException ex) {
@@ -225,6 +227,10 @@ String adress=jTextField4.getText(); ;
                 
                 return k;
     }
+  
+       
+
+       
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

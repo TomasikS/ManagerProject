@@ -46,7 +46,7 @@ public class MSDatabase {
         return conn;
     }
 
-    void add(Employee p) throws SQLException {
+   public void add(Employee p) throws SQLException {
          Connection conn = null;
          try {
             conn = DriverManager.getConnection(url, user, password);
@@ -71,7 +71,7 @@ public class MSDatabase {
                 
             }
             
-  void delete(String id) throws SQLException{
+   public void delete(String id) throws SQLException{
   
     Connection con = null;
    con = DriverManager.getConnection(url, user, password);
@@ -85,7 +85,7 @@ public class MSDatabase {
   }
   
   
- List read () throws SQLException{
+  public List read () throws SQLException{
      List<Employee> ae=new ArrayList();
      Connection con = DriverManager.getConnection(url, user, password);
   String query = "SELECT * FROM employee";
@@ -109,11 +109,11 @@ public class MSDatabase {
       
       }
       st.close(); for (int i=0;i<ae.size();i++)System.out.print(ae.get(i).getId());
-       return ae; 
+  con.close();      return ae; 
   }
  
  
-  List readHistory () throws SQLException{
+   public List readHistory () throws SQLException{
      List<Employee> ae=new ArrayList();
      Connection con = DriverManager.getConnection(url, user, password);
   String query = "SELECT * FROM employee_history";
@@ -150,7 +150,7 @@ public class MSDatabase {
  
  
  
-  void add(Contact p) throws SQLException {
+public  void add(Contact p) throws SQLException {
          Connection conn = null;
          try {
             conn = DriverManager.getConnection(url, user, password);
@@ -171,10 +171,10 @@ public class MSDatabase {
               
                     preparedStmt.execute();
            
-             
+          conn.close();
                 
             }
-void add(Property p) throws SQLException {
+public void add(Property p) throws SQLException {
          Connection conn = null;
          try {
             conn = DriverManager.getConnection(url, user, password);
@@ -199,7 +199,7 @@ void add(Property p) throws SQLException {
                 
 }
 
-    List<Property> readMajetok() throws SQLException {
+  public  List<Property> readMajetok() throws SQLException {
       
         List<Property >am=new ArrayList();
  Connection con = DriverManager.getConnection(url, user, password);
@@ -233,7 +233,7 @@ void add(Property p) throws SQLException {
 
      }
 
-    void deletemajetok(String kind) {
+  public  void deletemajetok(String kind) {
      try {
          Connection con = DriverManager.getConnection(url, user, password);
          String sql = "delete from Property where Name = ?";
@@ -246,7 +246,7 @@ void add(Property p) throws SQLException {
      }
     }
 
- List<Contact> readContacts() {
+ public List<Contact> readContacts() {
        List<Contact> u=new ArrayList<>();
      try {
        
@@ -270,15 +270,16 @@ void add(Property p) throws SQLException {
       
       
       }
-      st.close();
+      st.close();   con.close();
          
      } catch (SQLException ex) {
          Logger.getLogger(MSDatabase.class.getName()).log(Level.SEVERE, null, ex);
      }
+  
       return u;  
     }
 
-    void updateContact(Contact g) {
+  public  void updateContact(Contact g) {
        System.out.println(g.Lastname);
      try {
          Connection conn = DriverManager.getConnection(url, user, password);
@@ -297,7 +298,7 @@ void add(Property p) throws SQLException {
      }
     }
 
-    void updateEmployee(Employee e) {
+   public  void updateEmployee(Employee e) {
     try {
          Connection conn = DriverManager.getConnection(url, user, password);
          
@@ -316,7 +317,7 @@ void add(Property p) throws SQLException {
     
     }
     
-      void deleteContact(String s) throws SQLException{
+   public   void deleteContact(String s) throws SQLException{
   
     Connection con = null;
    con = DriverManager.getConnection(url, user, password);
