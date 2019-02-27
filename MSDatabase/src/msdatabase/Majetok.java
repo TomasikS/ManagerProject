@@ -205,7 +205,9 @@ panel2.add(jButton2);
         // TODO add your handling code here:
         
         d.add(new Property(jComboBox1.getSelectedItem().toString(),jTextField3.getText(),jTextField2.getText(), jTextField4.getText(),jTextField5.getText()  ) );
-    } catch (SQLException ex) {
+       JOptionPane.showMessageDialog( f,"ADDED NEW Property" );
+        
+        } catch (SQLException ex) {
         Logger.getLogger(Majetok.class.getName()).log(Level.SEVERE, null, ex);
     }  
         } 

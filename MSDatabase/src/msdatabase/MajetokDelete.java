@@ -140,7 +140,7 @@ JPanel p2=new JPanel();
         // TODO add your handling code here:
         if((s.equals("manager"))   || (s.equals("admin"))) {
       String j= JList1.getSelectedValue().toString();
-       d.deletemajetok(j);
+       d.deletemajetok(j);   JOptionPane.showMessageDialog( f,"Property deleted" );
         }  
           else  {JOptionPane.showMessageDialog( f,"You dont have permission" );
       }    

@@ -159,7 +159,7 @@ MSDatabase d=new  MSDatabase();
         // TODO add your handling code here:
         String  pr= jComboBox1.getSelectedItem().toString();
         System.out.println(pr);
-        d.delete(pr);
+        d.delete(pr);   JOptionPane.showMessageDialog( f," Employee deleted" );
     } catch (SQLException ex) {
         Logger.getLogger(DeleteForm.class.getName()).log(Level.SEVERE, null, ex);
     }}

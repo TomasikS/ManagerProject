@@ -127,7 +127,7 @@ JFrame f=new JFrame();
         // TODO add your handling code here:
         String s=jl.getSelectedValue().toString();
         
-        d.deleteContact(s);f.repaint();
+        d.deleteContact(s);f.repaint();   JOptionPane.showMessageDialog( f,"Deleted Contact" );
     } catch (SQLException ex) {
         Logger.getLogger(DeleteContactForm.class.getName()).log(Level.SEVERE, null, ex);
     } } 

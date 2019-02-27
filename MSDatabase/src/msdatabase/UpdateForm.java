@@ -192,6 +192,7 @@ String s=Main.getUsername();
         Employee con= contacts.get(pom); 
         con.setSalary(Integer.parseInt(jTextField1.getText()));
         m.updateEmployee(con);
+           JOptionPane.showMessageDialog( f,"Employee UPDATED" );
     } catch (SQLException ex) {
         Logger.getLogger(UpdateForm.class.getName()).log(Level.SEVERE, null, ex);
     }

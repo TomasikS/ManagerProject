@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -36,7 +37,7 @@ public class ViewForm1 {
         JButton b2=new JButton();
         MSDatabase d=new MSDatabase();
         
-        ArrayList<Employee> e=new   ArrayList();
+        List<Employee> e=new   ArrayList();
       
         e=(ArrayList<Employee>) d.read();
         int capacity=e.size();

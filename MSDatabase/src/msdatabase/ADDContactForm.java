@@ -54,7 +54,7 @@ Contact p;
           {  try {
                 p=new Contact(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField5.getText());
                 
-                d.add(p);
+                d.add(p);   JOptionPane.showMessageDialog( j,"ADDED NEW Contact" );
             } catch (SQLException ex) {
                 Logger.getLogger(ADDContactForm.class.getName()).log(Level.SEVERE, null, ex);
             } }

@@ -153,7 +153,7 @@ JPanel p2=new JPanel();
     
   Contact op=new Contact(s1,s2);
   System.out.println(op.Email);
-  d.updateContact(op); 
+  d.updateContact(op);    JOptionPane.showMessageDialog( f,"Updated contact" );
         } 
      else  {JOptionPane.showMessageDialog( f,"You dont have permission" );   
     }      

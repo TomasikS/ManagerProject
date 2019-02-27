@@ -37,7 +37,7 @@ public class HireDB {
     }
      
      
-    List readOrder () throws SQLException{
+   public List readOrder () throws SQLException{
      List<Order> ae=new ArrayList();
      Connection con = DriverManager.getConnection(url, user, password);
   String query = "SELECT * FROM Orders";
@@ -69,7 +69,7 @@ public class HireDB {
     
     
     
-     List readCustomer () throws SQLException{
+   public  List readCustomer () throws SQLException{
      List<Customer> ae=new ArrayList();
      Connection con = DriverManager.getConnection(url, user, password);
   String query = "SELECT * FROM Customers";
